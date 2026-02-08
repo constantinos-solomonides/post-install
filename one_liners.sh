@@ -121,3 +121,21 @@ file="${HOME}/${USER}-agent";
     screen -X setenv SSH_AUTH_SOCK "${SSH_AUTH_SOCK}";
     screen -X setenv TMOUT "";
 }
+
+# Add git `anonymize` filter
+# The first part is not given, as it will be anonymized by the repo if so. Use meaningful values for each one
+# E.g.
+#   * A phone_number pattern could be, written symbolically, <plus_sign>?[<digits><whitespace>]*
+#   * An e-mail patter could be <not_whitespace><backslash><plus_sign><at><not_whitespace><backslash><plus_sign>
+#   * ...
+
+git config --global filter.anonymize.clean
+    'sed
+        -e "s/<PHONE_PATTERN>/MY_PHONE_NUMBER/g"
+        -e "s/<EMAIL_1_PATTERN>/MY_EMAIL_ADDRESS/g"
+        -e "s/<EMAIL_2_PATTERN>/MY_EMAIL_ADDRESS_2/g"
+        -e "s/<DOMAIN_PATTERN>/MY_DOMAIN/g"
+        -e "s/<FULL_HANLDE_PATTERN>/MY_FULL_HANDLE/g"
+        -e "s/<SHORT_HANDLE_PATTERN>/MY_SHORT_HANDLE/g"
+        -e "s/<OPENAI_KEY_PATTERN>/MY_OPENAI_KEY/"
+        -e "s/\s\+$//"'
