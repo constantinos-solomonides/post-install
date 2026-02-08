@@ -1,0 +1,65 @@
+[user]
+	name = constantinos-solomonides
+	email = MY_EMAIL_ADDRESS
+[core]
+	editor = /usr/bin/vim
+[alias]
+    au = add -u
+    ae = add -e
+    cm = commit -m
+    dc = diff --cached
+    ce = commit -v -e
+    mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
+	ca = commit -v --amend
+
+    mma = merge origin/master
+    fe = fetch
+    pu = pull
+    fpush = !sh -c \"git push --set-upstream ${1:-origin} $(git branch --show-current)\"
+    fix = !sh -c \"git ls-files -- ./ | grep -v -f \\$([ -e .precommitignore ] && echo .precommitignore || mktemp) | xargs pre-commit run --config .pre-commit-fix.yaml --files\"
+    check = !sh -c \"git ls-files -- ./ | xargs pre-commit run --config .pre-commit-config.yaml --files\"
+	pa = "!sh -c \"git push origin --all; git push github --all\""
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[merge]
+	conflictStyle = diff3
+	tool = vimdiff
+[difftool]
+	prompt = false
+[merge]
+	conflictStyle = diff3
+[rerere]
+	enabled = true
+[submodule]
+	recurse = true
+[push]
+	recurseSubmodules = check
+[filter "blacken"]
+	clean = sed -e 's/\\s*$//' | black --pyi -q -
+	smudge = cat
+[filter "no_end_ws"]
+	clean = sed -e 's/\\s*$//'
+	smudge = cat
+[filter "manage_ws"]
+	clean = sed -e 's/\\s\\+$//' -e 's/\\t/  /g'
+	smudge = cat
+[credential "https://github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+[filter "golang"]
+	smudge = cat
+	clean = sed -e \"s/\\s\\+$//\" -e \"s/\\t/  /g\" | gofmt
+[fetch]
+	prune = true
+[filter "json"]
+	smudge = cat
+	clean = jq -M
+[init]
+	defaultBranch = master
+[remote "origin"]
+    prune = true
+[filter "anonymize"]
+	smudge = sed -e \"s/MY_PHONE_NUMBER/MY_PHONE_NUMBER/g\" -e \"s/MY_EMAIL_ADDRESS/MY_EMAIL_ADDRESS/g\" -e \"s/MY_OPENAI_KEY/MY_OPENAI_KEY
+	clean = sed -e \"s/+3[0-9 ]\\+/MY_PHONE_NUMBER/g\" -e \"s/[a-zA-Z90-9+.-]\\MY_EMAIL_ADDRESS/MY_EMAIL_ADDRESS/g\" -e \"s/[MY_EMAIL_ADDRESS -e \"s/MY_SHORT_HANDLE-MY_SECONDARY_HANDLE\\.net/MY_SHORT_HANDLE-MY_SECONDARY_HANDLE.net/g\" -e \"s/MY_SHORT_HANDLE_MY_SECONDARY_HANDLE/MY_SHORT_HANDLE_MY_SECONDARY_HANDLE/g\" -e \"s/MY_SHORT_HANDLE/MY_SHORT_HANDLE/g\" -e \"s/MY_OPENAI_KEY -e \"s/\\s\\+$//\"
