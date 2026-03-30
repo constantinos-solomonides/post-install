@@ -134,8 +134,8 @@ git config --global filter.anonymize.clean
         -e "s/<PHONE_PATTERN>/MY_PHONE_NUMBER/g"
         -e "s/<EMAIL_1_PATTERN>/MY_EMAIL_ADDRESS/g"
         -e "s/<EMAIL_2_PATTERN>/MY_EMAIL_ADDRESS_2/g"
-        -e "s/<DOMAIN_PATTERN>/MY_DOMAIN/g"
-        -e "s/<FULL_HANLDE_PATTERN>/MY_FULL_HANDLE/g"
+        -e "s/<DOMAIN_PATTERN>/MY_SHORT_HANDLE-MY_SECONDARY_HANDLE.net/g"
+        -e "s/<FULL_HANLDE_PATTERN>/MY_SHORT_HANDLE_MY_SECONDARY_HANDLE/g"
         -e "s/<SHORT_HANDLE_PATTERN>/MY_SHORT_HANDLE/g"
         -e "s/<OPENAI_KEY_PATTERN>/MY_OPENAI_KEY/"
         -e "s/\s\+$//"'
