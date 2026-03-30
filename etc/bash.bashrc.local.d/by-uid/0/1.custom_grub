@@ -1,0 +1,8 @@
+function custom_grub(){
+    echo "#!/bin/sh" > /etc/grub.d/42_custom;
+    echo "cat << EOFCUSTOM42" >> /etc/grub.d/42_custom;
+    startstop=( $(grep -n -e "10_" /home/suseroot/boot/grub2/grub.cfg | cut -f 1 -d ":" ) ) ;
+    tail -n +${startstop[0]} /home/suseroot/boot/grub2/grub.cfg | head -n +$((1 + startstop[1] - startstop[0])) >> /etc/grub.d/42_custom;
+    echo -n "EOFCUSTOM42" >> /etc/grub.d/42_custom;
+    chmod +x /etc/grub.d/42_custom;
+}; # Funcion custom_grub

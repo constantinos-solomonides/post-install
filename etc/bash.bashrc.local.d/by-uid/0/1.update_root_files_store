@@ -1,0 +1,29 @@
+update_root_files_store(){
+    echo "The status of changes is as follows: "
+    changed_files=$( hg status )
+    echo "${changed_files}"
+    changed_files=$( echo "${changed_files}" | sed -e "s/^. //" )
+    [ -z "$changed_files" ] && { echo "No files changed. Exiting."; return 0; }
+    case $# in
+        0)
+            echo -n "Please provide message to be used with hg commit: " ;
+            read message;
+            echo -n "(Optional): Please provide list of files to commit: " ;
+            read filelist ;
+        ;; # No arguments given.
+        1)
+            message=${1}
+            echo -n "(Optional): Please provide list of files to commit: " ;
+            read filelist ;
+        ;; # Only message given.
+        *)
+            message="${1}" ;
+            filelist=( ${@:2} ) ;
+        ;; # Message and filelist given.
+    esac
+
+    hg commit -m "${message}" ${filelist[1]}
+    # Create the archive here.
+    filename="/home/root/${DISTRO:-archlinux}/archlinux.rootfiles.$(now).tbz2"
+    hg archive -t tbz2 "${filename}"
+} #/update_root_files_store

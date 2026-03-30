@@ -1,0 +1,15 @@
+# Start terminals in screen mode.
+    [ "true" = "${SCREEN_SESSION_ACTIVE}" ] || {
+       SCREEN_SESSION_ACTIVE="true"; readonly SCREEN_SESSION_ACTIVE; export SCREEN_SESSION_ACTIVE;
+        readonly SCREEN_SESSION_ACTIVE; \
+        export SCREEN_SESSION_ACTIVE;
+        { [ -e /tmp/no_screen ] && { rm -f /tmp/no_screen; true;};} || {
+          [ -e ${HOME}/no_screen ] && { rm -f ${HOME}/no_screen; true;};} || {
+            screen -S GENERIC &&
+            { { [ -e /tmp/keep_after_screen ] && { rm /tmp/keep_after_screen; true;};} ||
+        { [ -e /tmp/no_screen ] && { rm -f /tmp/no_screen; true;};} || {
+          [ -e ${HOME}/no_screen ] && { rm -f ${HOME}/no_screen; true;};} ||
+              { sleep 1s; exit; }
+            }
+        }
+    } # SCREEN_SESSION_ACTIVE

@@ -1,0 +1,13 @@
+#!/bin/bash
+count=10;
+pid=$$;
+while ((pid != 1)); do
+    if ( ps -o comm -h -p $pid | grep -q -e 'screen';); then
+        screen -X title CLI;
+        break;
+    elif (( count-- == 0)); then
+        break;
+    else
+        pid=$(ps -o ppid -h -p $pid);
+    fi;
+done

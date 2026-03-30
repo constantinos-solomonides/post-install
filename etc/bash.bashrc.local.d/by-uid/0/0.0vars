@@ -1,0 +1,11 @@
+alias remake_hosts=':> /etc/hosts;
+    echo -n "127.0.0.1 " >> /etc/hosts;
+    /bin/hostname >> /etc/hosts;
+    for i in /etc/hosts.d/*; do
+        echo "#${i}" >> /etc/hosts ;
+        cat ${i} >> /etc/hosts; done'
+
+# FIXME flag used has to do with vim only.
+alias brc="${EDITOR} -p /etc/bash.bashrc.local          \
+                        /etc/bash.bashrc.local.d/*      \
+                        /etc/bash.bashrc.local.d/by-uid/0/*";

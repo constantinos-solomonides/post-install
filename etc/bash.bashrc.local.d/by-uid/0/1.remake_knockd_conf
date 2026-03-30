@@ -1,0 +1,45 @@
+#!/bin/bash
+ # Re-makes knockd.conf
+
+function remake_knockd_conf(){
+    local generate_script="/etc/knockd.d/knockd.conf.make";
+    if [ "all" == "${1}" ]; then
+        all_interfaces=( $(
+            ip link show                            | \
+            grep --color=never -e "^[0-9]\+:"       | \
+            cut -d ":" -f 2                         | \
+            grep --color=never -ve "^[ \t]*lo[ \t]*$"  ) ); #/all_interfaces
+        for i in ${all_interfaces[@]}; do
+            remake_knockd_conf ${i};
+        done
+        return 0;
+    fi
+
+    local interface=${1:-eth0}
+    local service_file="/usr/lib/systemd/system/knockd.2.${interface}.service";
+
+    [ -x "${generate_script}" ] || {
+        echo "File ${generate_script} not found or not executable." 1>&2
+        return 1;
+    }
+
+    echo "Making conf for interface ${interface}" 1>&2
+    ${generate_script} --tofiles ${interface}
+
+    sed -e 's/^[ \t]*//' >${service_file} <<ENDKNOCKD
+            [Unit]
+            Description=Port-Knocking Daemon
+            After=network.target
+
+            [Service]
+            ExecStart=/usr/sbin/knockd -v -i ${interface} -c /etc/knockd.${interface}.conf -d
+            Type=forking
+            Restart=always
+            RestartSec=10
+
+            [Install]
+            WantedBy=multi-user.target
+ENDKNOCKD
+    systemctl enable ${service_file} ||
+        echo "Could not enable ${service_file}";
+ } # remake_knockd_conf

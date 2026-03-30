@@ -1,0 +1,207 @@
+" Custom vim functions, variables and settings
+
+
+" @function SaveColors
+"
+function! SaveColors()
+  if buflisted(bufname("%")) == 0
+    return
+  endif " if buffer not listed
+  let b:clrs_name = g:colors_name
+  call setbufvar("%", "colorscheme", b:clrs_name)
+endfunction " SaveColors
+
+" @function CopyAndMove
+"
+function! CopyAndMove() range
+  let l:linebuf =  getline(a:firstline, a:lastline)
+  call append(a:lastline, l:linebuf)
+  call cursor(a:lastline + 1, 0)
+endfunction " CopyAndMove
+
+" @function SetSyntaxPerConnection
+"
+function! SetSyntaxPerConnection()
+  if (buflisted(bufname("%")) == 0)
+    return
+  endif " if buffer not listed
+
+  try
+    let b:clrscheme = getbufvar("%", "colorscheme")
+    if len(b:clrscheme) != 0
+      exec printf("colorscheme %s", b:clrscheme)
+    elseif 'sh' == &syntax
+        colorscheme colorer
+    elseif 'c' == &syntax
+        colorscheme chocolateliquor
+    elseif 'python' == &syntax
+        colorscheme settlemyer
+    elseif 'make' == &syntax
+        colorscheme colorer
+        set noexpandtab
+    else
+        colorscheme default
+    endif
+  catch
+    echo "Exception: " . v:exception
+    colorscheme kellys2
+  endtry
+    hi User1 term=inverse,bold cterm=inverse,bold ctermfg=blue
+    hi User2 term=inverse,bold cterm=inverse,bold ctermfg=green
+endfunction " /SetSyntaxPerConnection
+
+" @function SelectColorschemes
+"
+function! SelectColorschemes()
+  let colors=split(glob("~/.vim/colors/*.vim"))
+  for i in colors
+    exec printf("colorscheme %s", substitute(i, ".*/\\([^/]\\+\\).vim","\\1", ""))
+    redraw
+    echo i
+    let reply=input("> ")
+    if reply == "q"
+      break
+    endif
+  endfor
+endfunction " /SelectColorschemes
+
+" @function GetTabListStatus
+" Display a tablist in a similar mode as the bufferlist offered by :ls
+"   * Less versatile in terms of completion (<name><Tab> does not work)
+"   * There is no "type command or press enter" option
+
+" lasttab "remembers" the last tab so it can be shown
+" Check Autocommands below for another location this is set
+let g:lasttab = 1
+function! GetTabListStatus()
+  function! InSearchList(buffers)
+    let l:return = 0
+    try
+      for l:pattern in g:important_tabs
+        if -1 != match(a:buffers, l:pattern)
+          return 1
+          break
+        endif " /if -1 != match(a:buffers, l:pattern)
+      endfor " / for l:pattern in g:important_tabs
+    catch
+      let l:return  = 0
+    endtry " /access g:important_tabs
+    return l:return
+  endfunction " /InSearchList
+
+
+  for l:j in range(tabpagenr('$'))
+    let l:modified_str = ""
+    let l:buflist = tabpagebuflist(l:j+1)
+    for l:i in l:buflist
+      if 0 != getbufvar(i, "&mod")
+        let l:modified_str = "[+]"
+        break
+      endif "if modified non zero
+    endfor "for buffer in l:buflist
+    let l:buffernames = []
+    for l:buffer in tabpagebuflist(l:j+1)
+      let l:buffername = bufname(l:buffer)
+      if (len("" . l:buffername ) == 0)
+        let l:buffername = printf("[No Name %d]", bufnr(l:buffer))
+      endif " /if len == 0
+      let l:buffernames = add(l:buffernames, l:buffername)
+    endfor " /for l:buffer in
+    let l:buffers = join(l:buffernames, ' || ')
+    let l:field_length = float2nr(ceil(log10(tabpagenr('$')+1)))
+    let l:flags = printf("%2s [%*d][%d]%3s"                     ,
+    \                    l:j == tabpagenr() -1 ? '@' :
+    \                         l:j ==  g:lasttab -1 ? '#' : ''  ,
+    \                    l:field_length  , (l:j+1)              ,
+    \                    len(l:buflist)  , l:modified_str         )
+    if l:j  == tabpagenr() - 1
+      echohl Title
+    elseif InSearchList(l:buffers)
+      echohl Identifier
+    elseif -1 != match(l:buffers, "vim.*doc/")
+      echohl Todo
+    elseif -1 != match(l:buffers, "Test")
+      echohl Title
+    elseif -1 != match(l:buffers, "test")
+      echohl Title
+    else
+      echohl None
+    endif " if l:j  == tabpagenr() - 1
+    echo printf("%s %s", l:flags, l:buffers)
+  endfor " /l:j in range...
+endfunction
+
+
+set autoindent
+set relativenumber
+set number
+set history         =600
+set laststatus      =2
+set shiftwidth      =4
+set softtabstop     =4
+set scrolloff       =3
+set statusline      =%-(%1*[%{&syntax}]%*%2*[%{hostname()}]%*
+                     \%<(%{pathshorten(getcwd())})(%f)%m%)
+                     \%=%(%l/%L,%v%)
+set t_Co            =256
+set tabstop         =4
+set showtabline     =0
+set tw              =120
+set undodir         =${HOME}/.vim/undo/
+set undofile
+set ruler
+set runtimepath     +=/usr/share/vim/common/
+if &syntax != "make"
+  set expandtab
+endif
+
+" Highlight groups
+" ---------------
+hi User1 term=inverse,bold cterm=inverse,bold ctermfg=blue
+hi User2 term=inverse,bold cterm=inverse,bold ctermfg=green
+hi EndWS term=NONE ctermbg=white ctermbg=white
+match EndWS /\s\+$/
+
+" Mappings
+" --------
+noremap <F2> "+p
+inoremap <F2> <C-R>+
+noremap <F3> "+y
+noremap  <C-c> <Esc>
+cnoremap  <C-c> <Esc>
+inoremap <C-c> <Esc>
+noremap gB :bprevious<Return>
+noremap gb :bnext<Return>
+map tt :tabnew<CR>
+noremap tl :call<Space>GetTabListStatus()<CR>
+noremap <C-L> :call<Space>CopyAndMove()<CR>
+
+
+augroup ownAU
+try
+  au!
+catch
+endtry
+    au BufNewFile,BufRead */.ssh/config.d/*     setf sshconfig
+    au BufNewFile,BufRead *.tex                 set tw=0
+    au BufNewFile,BufRead *.md                  set tw=110
+    au BufNewFile,BufRead /etc/hosts.d/*        setf conf
+    au BufNewFile,BufRead /etc/sudoers.d/*      setf sudoers
+    au BufNewFile,BufRead,BufEnter */Makefile*  set noexpandtab
+    au BufNewFile,BufRead /etc/screenrc         set tw=0
+    au BufNewFile,BufRead /tmp/bash-fc*         set tw=0
+    au BufNewFile,BufRead /tmp/bash-fc*         set syntax=sh
+    au BufLeave           */Makefile*           set expandtab
+    au BufEnter           .git/COMMIT_EDITMSG   set spell spelllang=en_us
+    au BufEnter           *                     call SetSyntaxPerConnection()
+    au BufLeave           *                     call SaveColors()
+    au BufEnter           *                     highlight OverLength ctermbg=white
+    \           guibg=#592929 ctermfg=black
+    au BufEnter           *                     exec printf("match OverLength " .
+    \            "/\\%%%dv.*/", (&tw == 0?999999:&tw))
+    " Update g:lasttab, so that the tablist display is valid
+    au TabLeave           *                     let g:lasttab = tabpagenr()
+    au Syntax * call SetSyntaxPerConnection()
+    au Syntax man set tw=0
+    au FileType           python                compiler pylint
+augroup END
