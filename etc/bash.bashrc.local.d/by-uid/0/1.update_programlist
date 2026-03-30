@@ -1,0 +1,18 @@
+update_programlist(){
+    timestamp="$(now)";
+    if [ "opensuse" = "${DISTRO}" ]; then
+        programlist_file="/home/root/opensuse/suse.programlist.${timestamp}.bak";
+        zypper search -i | \
+           tail -n +6       | \
+           cut -b 5-42      | \
+           sort -u > "${programlist_file}";
+    elif [ "archlinux" = "${DISTRO}" ];then
+        basedir="/home/root/archlinux";
+        basename="archlinux.programlist.${timestamp}";
+        aur_list="${basedir}/${basename}.aur";
+        repo_list="${basedir}/${basename}.repos";
+        pacman -Qqm > "${aur_list}";
+        pacman -Qqs | grep -vf "${aur_list}" > "${repo_list}";
+    fi #/ if opensuse
+} ; # update_programlist(){}
+

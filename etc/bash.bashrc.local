@@ -1,0 +1,35 @@
+#!/bin/bash
+# |-------------------------------------------------------------------------| #
+# |                           Program Information                           | #
+# |-------------------------------------------------------------------------| #
+# | File         : bash.bashrc.local                                        | #
+# | PL           : bash                                                     | #
+# | Purpose      : bashrc file                                              | #
+# | Date         : 2014_04_12                                               | #
+# | Author       : MY_SHORT_HANDLE_MY_SECONDARY_HANDLE                                          | #
+# | +              MY_SHORT_HANDLE_MY_SECONDARY_HANDLE                                          | #
+# |-------------------------------------------------------------------------| #
+# | keywords     : bash bashrc local global                                 | #
+# |-------------------------------------------------------------------------| #
+
+#ECHO=/usr/bin/echo
+ECHO=""
+if [ ! -z "${PS1}" ]; then
+    # Activate Completion.
+    [ -r /usr/share/bash-completion/bash_completion ] && \
+        ${ECHO} . /usr/share/bash-completion/bash_completion;
+    # General purpose codes.
+    for i in /etc/bash.bashrc.local.d/*; do
+        [ -e "${i}" ] && \
+        [ -f "${i}" ] && \
+        ${ECHO} . ${i}
+    done #/for all files in bashrc.local.d
+
+    # Source the appropriate files by UID
+    for i in /etc/bash.bashrc.local.d/by-uid/${UID}/*; do
+        [ -e "${i}" ] && \
+        [ -f "${i}" ] && \
+        ${ECHO} . ${i}
+    done #/for all files in bashrc.local.d
+fi # /if empty PS1
+# ELSE do nothing.

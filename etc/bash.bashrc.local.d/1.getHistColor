@@ -1,0 +1,15 @@
+# Get a progressively more alarming history number color, depending on how many are used up.
+function getHistColor(){
+    #local histcmd="$( cat ${HOME}/.bash_history 2>/dev/null | wc -l )" ;
+    local histcmd="$(history 1 | head -n 1 | awk '{print $1}')";
+    if [ -z "${histcmd}" -o 0 -eq "${histcmd}" ] ; then
+        histcmd="1";
+    fi
+    local histColorsList=( 32 34 36 35 33 31 );
+    local histColorsListExtended=( ${histColorsList[*]} ${histColorsList[-1]} );
+    local histColorsListLength="${#histColorsList[@]}";
+    local histPercentageChange=$(( HISTSIZE / histColorsListLength ));
+    local histPointer="$(( histcmd / histPercentageChange ))";
+    local histcolor="${histColorsListExtended[histPointer]}";
+    echo -n "${histcolor}";
+} ; # getHistColor

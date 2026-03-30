@@ -1,0 +1,4 @@
+[ -z "$NOTIFIED" ] && {
+  { [ -d /.git ] && cd / && git status ; } ||
+  { [ -d /.hg ] && cd / && hg status ;   } ;
+  export NOTIFIED=true; }
