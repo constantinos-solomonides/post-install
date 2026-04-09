@@ -1,4 +1,6 @@
 set syntax=test_vim_colors
+let g:colors_name="test_vim_colors"
+let main_syntax="test_vim_colors"
 let b:current_syntax="test_vim_colors"
 hi!  Example1    cterm=bold  ctermfg=1    |  syn  match  Example1    /Example1/    "  Red
 hi!  Example2    cterm=bold  ctermfg=2    |  syn  match  Example2    /Example2/    "  Olive   green
