@@ -1,258 +1,258 @@
 set syntax=test_vim_colors
 let b:current_syntax="test_vim_colors"
-hi Example1 ctermfg=1    | syn match Example1   /Example1/
-hi Example2 ctermfg=2    | syn match Example2   /Example2/
-hi Example3 ctermfg=3    | syn match Example3   /Example3/
-hi Example4 ctermfg=4    | syn match Example4   /Example4/
-hi Example5 ctermfg=5    | syn match Example5   /Example5/
-hi Example6 ctermfg=6    | syn match Example6   /Example6/
-hi Example7 ctermfg=7    | syn match Example7   /Example7/
-hi Example8 ctermfg=8    | syn match Example8   /Example8/
-hi Example9 ctermfg=9    | syn match Example9   /Example9/
-hi Example10 ctermfg=10  | syn match Example10  /Example10/
-hi Example11 ctermfg=11  | syn match Example11  /Example11/
-hi Example12 ctermfg=12  | syn match Example12  /Example12/
-hi Example13 ctermfg=13  | syn match Example13  /Example13/
-hi Example14 ctermfg=14  | syn match Example14  /Example14/
-hi Example15 ctermfg=15  | syn match Example15  /Example15/
-hi Example16 ctermfg=16  | syn match Example16  /Example16/
-hi Example17 ctermfg=17  | syn match Example17  /Example17/
-hi Example18 ctermfg=18  | syn match Example18  /Example18/
-hi Example19 ctermfg=19  | syn match Example19  /Example19/
-hi Example20 ctermfg=20  | syn match Example20  /Example20/
-hi Example21 ctermfg=21  | syn match Example21  /Example21/
-hi Example22 ctermfg=22  | syn match Example22  /Example22/
-hi Example23 ctermfg=23  | syn match Example23  /Example23/
-hi Example24 ctermfg=24  | syn match Example24  /Example24/
-hi Example25 ctermfg=25  | syn match Example25  /Example25/
-hi Example26 ctermfg=26  | syn match Example26  /Example26/
-hi Example27 ctermfg=27  | syn match Example27  /Example27/
-hi Example28 ctermfg=28  | syn match Example28  /Example28/
-hi Example29 ctermfg=29  | syn match Example29  /Example29/
-hi Example30 ctermfg=30  | syn match Example30  /Example30/
-hi Example31 ctermfg=31  | syn match Example31  /Example31/
-hi Example32 ctermfg=32  | syn match Example32  /Example32/
-hi Example33 ctermfg=33  | syn match Example33  /Example33/
-hi Example34 ctermfg=34  | syn match Example34  /Example34/
-hi Example35 ctermfg=35  | syn match Example35  /Example35/
-hi Example36 ctermfg=36  | syn match Example36  /Example36/
-hi Example37 ctermfg=37  | syn match Example37  /Example37/
-hi Example38 ctermfg=38  | syn match Example38  /Example38/
-hi Example39 ctermfg=39  | syn match Example39  /Example39/
-hi Example40 ctermfg=40  | syn match Example40  /Example40/
-hi Example41 ctermfg=41  | syn match Example41  /Example41/
-hi Example42 ctermfg=42  | syn match Example42  /Example42/
-hi Example43 ctermfg=43  | syn match Example43  /Example43/
-hi Example44 ctermfg=44  | syn match Example44  /Example44/
-hi Example45 ctermfg=45  | syn match Example45  /Example45/
-hi Example46 ctermfg=46  | syn match Example46  /Example46/
-hi Example47 ctermfg=47  | syn match Example47  /Example47/
-hi Example48 ctermfg=48  | syn match Example48  /Example48/
-hi Example49 ctermfg=49  | syn match Example49  /Example49/
-hi Example50 ctermfg=50  | syn match Example50  /Example50/
-hi Example51 ctermfg=51  | syn match Example51  /Example51/
-hi Example52 ctermfg=52  | syn match Example52  /Example52/
-hi Example53 ctermfg=53  | syn match Example53  /Example53/
-hi Example54 ctermfg=54  | syn match Example54  /Example54/
-hi Example55 ctermfg=55  | syn match Example55  /Example55/
-hi Example56 ctermfg=56  | syn match Example56  /Example56/
-hi Example57 ctermfg=57  | syn match Example57  /Example57/
-hi Example58 ctermfg=58  | syn match Example58  /Example58/
-hi Example59 ctermfg=59  | syn match Example59  /Example59/
-hi Example60 ctermfg=60  | syn match Example60  /Example60/
-hi Example61 ctermfg=61  | syn match Example61  /Example61/
-hi Example62 ctermfg=62  | syn match Example62  /Example62/
-hi Example63 ctermfg=63  | syn match Example63  /Example63/
-hi Example64 ctermfg=64  | syn match Example64  /Example64/
-hi Example65 ctermfg=65  | syn match Example65  /Example65/
-hi Example66 ctermfg=66  | syn match Example66  /Example66/
-hi Example67 ctermfg=67  | syn match Example67  /Example67/
-hi Example68 ctermfg=68  | syn match Example68  /Example68/
-hi Example69 ctermfg=69  | syn match Example69  /Example69/
-hi Example70 ctermfg=70  | syn match Example70  /Example70/
-hi Example71 ctermfg=71  | syn match Example71  /Example71/
-hi Example72 ctermfg=72  | syn match Example72  /Example72/
-hi Example73 ctermfg=73  | syn match Example73  /Example73/
-hi Example74 ctermfg=74  | syn match Example74  /Example74/
-hi Example75 ctermfg=75  | syn match Example75  /Example75/
-hi Example76 ctermfg=76  | syn match Example76  /Example76/
-hi Example77 ctermfg=77  | syn match Example77  /Example77/
-hi Example78 ctermfg=78  | syn match Example78  /Example78/
-hi Example79 ctermfg=79  | syn match Example79  /Example79/
-hi Example80 ctermfg=80  | syn match Example80  /Example80/
-hi Example81 ctermfg=81  | syn match Example81  /Example81/
-hi Example82 ctermfg=82  | syn match Example82  /Example82/
-hi Example83 ctermfg=83  | syn match Example83  /Example83/
-hi Example84 ctermfg=84  | syn match Example84  /Example84/
-hi Example85 ctermfg=85  | syn match Example85  /Example85/
-hi Example86 ctermfg=86  | syn match Example86  /Example86/
-hi Example87 ctermfg=87  | syn match Example87  /Example87/
-hi Example88 ctermfg=88  | syn match Example88  /Example88/
-hi Example89 ctermfg=89  | syn match Example89  /Example89/
-hi Example90 ctermfg=90  | syn match Example90  /Example90/
-hi Example91 ctermfg=91  | syn match Example91  /Example91/
-hi Example92 ctermfg=92  | syn match Example92  /Example92/
-hi Example93 ctermfg=93  | syn match Example93  /Example93/
-hi Example94 ctermfg=94  | syn match Example94  /Example94/
-hi Example95 ctermfg=95  | syn match Example95  /Example95/
-hi Example96 ctermfg=96  | syn match Example96  /Example96/
-hi Example97 ctermfg=97  | syn match Example97  /Example97/
-hi Example98 ctermfg=98  | syn match Example98  /Example98/
-hi Example99 ctermfg=99  | syn match Example99  /Example99/
-hi Example100 ctermfg=100| syn match Example100 /Example100/
-hi Example101 ctermfg=101| syn match Example101 /Example101/
-hi Example102 ctermfg=102| syn match Example102 /Example102/
-hi Example103 ctermfg=103| syn match Example103 /Example103/
-hi Example104 ctermfg=104| syn match Example104 /Example104/
-hi Example105 ctermfg=105| syn match Example105 /Example105/
-hi Example106 ctermfg=106| syn match Example106 /Example106/
-hi Example107 ctermfg=107| syn match Example107 /Example107/
-hi Example108 ctermfg=108| syn match Example108 /Example108/
-hi Example109 ctermfg=109| syn match Example109 /Example109/
-hi Example110 ctermfg=110| syn match Example110 /Example110/
-hi Example111 ctermfg=111| syn match Example111 /Example111/
-hi Example112 ctermfg=112| syn match Example112 /Example112/
-hi Example113 ctermfg=113| syn match Example113 /Example113/
-hi Example114 ctermfg=114| syn match Example114 /Example114/
-hi Example115 ctermfg=115| syn match Example115 /Example115/
-hi Example116 ctermfg=116| syn match Example116 /Example116/
-hi Example117 ctermfg=117| syn match Example117 /Example117/
-hi Example118 ctermfg=118| syn match Example118 /Example118/
-hi Example119 ctermfg=119| syn match Example119 /Example119/
-hi Example120 ctermfg=120| syn match Example120 /Example120/
-hi Example121 ctermfg=121| syn match Example121 /Example121/
-hi Example122 ctermfg=122| syn match Example122 /Example122/
-hi Example123 ctermfg=123| syn match Example123 /Example123/
-hi Example124 ctermfg=124| syn match Example124 /Example124/
-hi Example125 ctermfg=125| syn match Example125 /Example125/
-hi Example126 ctermfg=126| syn match Example126 /Example126/
-hi Example127 ctermfg=127| syn match Example127 /Example127/
-hi Example128 ctermfg=128| syn match Example128 /Example128/
-hi Example129 ctermfg=129| syn match Example129 /Example129/
-hi Example130 ctermfg=130| syn match Example130 /Example130/
-hi Example131 ctermfg=131| syn match Example131 /Example131/
-hi Example132 ctermfg=132| syn match Example132 /Example132/
-hi Example133 ctermfg=133| syn match Example133 /Example133/
-hi Example134 ctermfg=134| syn match Example134 /Example134/
-hi Example135 ctermfg=135| syn match Example135 /Example135/
-hi Example136 ctermfg=136| syn match Example136 /Example136/
-hi Example137 ctermfg=137| syn match Example137 /Example137/
-hi Example138 ctermfg=138| syn match Example138 /Example138/
-hi Example139 ctermfg=139| syn match Example139 /Example139/
-hi Example140 ctermfg=140| syn match Example140 /Example140/
-hi Example141 ctermfg=141| syn match Example141 /Example141/
-hi Example142 ctermfg=142| syn match Example142 /Example142/
-hi Example143 ctermfg=143| syn match Example143 /Example143/
-hi Example144 ctermfg=144| syn match Example144 /Example144/
-hi Example145 ctermfg=145| syn match Example145 /Example145/
-hi Example146 ctermfg=146| syn match Example146 /Example146/
-hi Example147 ctermfg=147| syn match Example147 /Example147/
-hi Example148 ctermfg=148| syn match Example148 /Example148/
-hi Example149 ctermfg=149| syn match Example149 /Example149/
-hi Example150 ctermfg=150| syn match Example150 /Example150/
-hi Example151 ctermfg=151| syn match Example151 /Example151/
-hi Example152 ctermfg=152| syn match Example152 /Example152/
-hi Example153 ctermfg=153| syn match Example153 /Example153/
-hi Example154 ctermfg=154| syn match Example154 /Example154/
-hi Example155 ctermfg=155| syn match Example155 /Example155/
-hi Example156 ctermfg=156| syn match Example156 /Example156/
-hi Example157 ctermfg=157| syn match Example157 /Example157/
-hi Example158 ctermfg=158| syn match Example158 /Example158/
-hi Example159 ctermfg=159| syn match Example159 /Example159/
-hi Example160 ctermfg=160| syn match Example160 /Example160/
-hi Example161 ctermfg=161| syn match Example161 /Example161/
-hi Example162 ctermfg=162| syn match Example162 /Example162/
-hi Example163 ctermfg=163| syn match Example163 /Example163/
-hi Example164 ctermfg=164| syn match Example164 /Example164/
-hi Example165 ctermfg=165| syn match Example165 /Example165/
-hi Example166 ctermfg=166| syn match Example166 /Example166/
-hi Example167 ctermfg=167| syn match Example167 /Example167/
-hi Example168 ctermfg=168| syn match Example168 /Example168/
-hi Example169 ctermfg=169| syn match Example169 /Example169/
-hi Example170 ctermfg=170| syn match Example170 /Example170/
-hi Example171 ctermfg=171| syn match Example171 /Example171/
-hi Example172 ctermfg=172| syn match Example172 /Example172/
-hi Example173 ctermfg=173| syn match Example173 /Example173/
-hi Example174 ctermfg=174| syn match Example174 /Example174/
-hi Example175 ctermfg=175| syn match Example175 /Example175/
-hi Example176 ctermfg=176| syn match Example176 /Example176/
-hi Example177 ctermfg=177| syn match Example177 /Example177/
-hi Example178 ctermfg=178| syn match Example178 /Example178/
-hi Example179 ctermfg=179| syn match Example179 /Example179/
-hi Example180 ctermfg=180| syn match Example180 /Example180/
-hi Example181 ctermfg=181| syn match Example181 /Example181/
-hi Example182 ctermfg=182| syn match Example182 /Example182/
-hi Example183 ctermfg=183| syn match Example183 /Example183/
-hi Example184 ctermfg=184| syn match Example184 /Example184/
-hi Example185 ctermfg=185| syn match Example185 /Example185/
-hi Example186 ctermfg=186| syn match Example186 /Example186/
-hi Example187 ctermfg=187| syn match Example187 /Example187/
-hi Example188 ctermfg=188| syn match Example188 /Example188/
-hi Example189 ctermfg=189| syn match Example189 /Example189/
-hi Example190 ctermfg=190| syn match Example190 /Example190/
-hi Example191 ctermfg=191| syn match Example191 /Example191/
-hi Example192 ctermfg=192| syn match Example192 /Example192/
-hi Example193 ctermfg=193| syn match Example193 /Example193/
-hi Example194 ctermfg=194| syn match Example194 /Example194/
-hi Example195 ctermfg=195| syn match Example195 /Example195/
-hi Example196 ctermfg=196| syn match Example196 /Example196/
-hi Example197 ctermfg=197| syn match Example197 /Example197/
-hi Example198 ctermfg=198| syn match Example198 /Example198/
-hi Example199 ctermfg=199| syn match Example199 /Example199/
-hi Example200 ctermfg=200| syn match Example200 /Example200/
-hi Example201 ctermfg=201| syn match Example201 /Example201/
-hi Example202 ctermfg=202| syn match Example202 /Example202/
-hi Example203 ctermfg=203| syn match Example203 /Example203/
-hi Example204 ctermfg=204| syn match Example204 /Example204/
-hi Example205 ctermfg=205| syn match Example205 /Example205/
-hi Example206 ctermfg=206| syn match Example206 /Example206/
-hi Example207 ctermfg=207| syn match Example207 /Example207/
-hi Example208 ctermfg=208| syn match Example208 /Example208/
-hi Example209 ctermfg=209| syn match Example209 /Example209/
-hi Example210 ctermfg=210| syn match Example210 /Example210/
-hi Example211 ctermfg=211| syn match Example211 /Example211/
-hi Example212 ctermfg=212| syn match Example212 /Example212/
-hi Example213 ctermfg=213| syn match Example213 /Example213/
-hi Example214 ctermfg=214| syn match Example214 /Example214/
-hi Example215 ctermfg=215| syn match Example215 /Example215/
-hi Example216 ctermfg=216| syn match Example216 /Example216/
-hi Example217 ctermfg=217| syn match Example217 /Example217/
-hi Example218 ctermfg=218| syn match Example218 /Example218/
-hi Example219 ctermfg=219| syn match Example219 /Example219/
-hi Example220 ctermfg=220| syn match Example220 /Example220/
-hi Example221 ctermfg=221| syn match Example221 /Example221/
-hi Example222 ctermfg=222| syn match Example222 /Example222/
-hi Example223 ctermfg=223| syn match Example223 /Example223/
-hi Example224 ctermfg=224| syn match Example224 /Example224/
-hi Example225 ctermfg=225| syn match Example225 /Example225/
-hi Example226 ctermfg=226| syn match Example226 /Example226/
-hi Example227 ctermfg=227| syn match Example227 /Example227/
-hi Example228 ctermfg=228| syn match Example228 /Example228/
-hi Example229 ctermfg=229| syn match Example229 /Example229/
-hi Example230 ctermfg=230| syn match Example230 /Example230/
-hi Example231 ctermfg=231| syn match Example231 /Example231/
-hi Example232 ctermfg=232| syn match Example232 /Example232/
-hi Example233 ctermfg=233| syn match Example233 /Example233/
-hi Example234 ctermfg=234| syn match Example234 /Example234/
-hi Example235 ctermfg=235| syn match Example235 /Example235/
-hi Example236 ctermfg=236| syn match Example236 /Example236/
-hi Example237 ctermfg=237| syn match Example237 /Example237/
-hi Example238 ctermfg=238| syn match Example238 /Example238/
-hi Example239 ctermfg=239| syn match Example239 /Example239/
-hi Example240 ctermfg=240| syn match Example240 /Example240/
-hi Example241 ctermfg=241| syn match Example241 /Example241/
-hi Example242 ctermfg=242| syn match Example242 /Example242/
-hi Example243 ctermfg=243| syn match Example243 /Example243/
-hi Example244 ctermfg=244| syn match Example244 /Example244/
-hi Example245 ctermfg=245| syn match Example245 /Example245/
-hi Example246 ctermfg=246| syn match Example246 /Example246/
-hi Example247 ctermfg=247| syn match Example247 /Example247/
-hi Example248 ctermfg=248| syn match Example248 /Example248/
-hi Example249 ctermfg=249| syn match Example249 /Example249/
-hi Example250 ctermfg=250| syn match Example250 /Example250/
-hi Example251 ctermfg=251| syn match Example251 /Example251/
-hi Example252 ctermfg=252| syn match Example252 /Example252/
-hi Example253 ctermfg=253| syn match Example253 /Example253/
-hi Example254 ctermfg=254| syn match Example254 /Example254/
-hi Example255 ctermfg=255| syn match Example255 /Example255/
-hi Example256 ctermfg=256| syn match Example256 /Example256/
+hi!  Example1    cterm=bold  ctermfg=1    |  syn  match  Example1    /Example1/    "  Red
+hi!  Example2    cterm=bold  ctermfg=2    |  syn  match  Example2    /Example2/    "  Olive   green
+hi!  Example3    cterm=bold  ctermfg=3    |  syn  match  Example3    /Example3/    "  Yellow
+hi!  Example4    cterm=bold  ctermfg=4    |  syn  match  Example4    /Example4/    "  Light   blue
+hi!  Example5    cterm=bold  ctermfg=5    |  syn  match  Example5    /Example5/    "  Purple
+hi!  Example6    cterm=bold  ctermfg=6    |  syn  match  Example6    /Example6/    "  Light   turquoise
+hi!  Example7    cterm=bold  ctermfg=7    |  syn  match  Example7    /Example7/    "  Very    light yellow
+hi!  Example8    cterm=bold  ctermfg=8    |  syn  match  Example8    /Example8/    "  Black   black
+hi!  Example9    cterm=bold  ctermfg=9    |  syn  match  Example9    /Example9/    "  Bright  red
+hi!  Example10   cterm=bold  ctermfg=10   |  syn  match  Example10   /Example10/   "  Light   green
+hi!  Example11   cterm=bold  ctermfg=11   |  syn  match  Example11   /Example11/   "  Light   yellow
+hi!  Example12   cterm=bold  ctermfg=12   |  syn  match  Example12   /Example12/   "  Light   blue
+hi!  Example13   cterm=bold  ctermfg=13   |  syn  match  Example13   /Example13/   "  Light   purple / rose
+hi!  Example14   cterm=bold  ctermfg=14   |  syn  match  Example14   /Example14/   "  Light   green
+hi!  Example15   cterm=bold  ctermfg=15   |  syn  match  Example15   /Example15/
+hi!  Example16   cterm=bold  ctermfg=16   |  syn  match  Example16   /Example16/
+hi!  Example17   cterm=bold  ctermfg=17   |  syn  match  Example17   /Example17/
+hi!  Example18   cterm=bold  ctermfg=18   |  syn  match  Example18   /Example18/
+hi!  Example19   cterm=bold  ctermfg=19   |  syn  match  Example19   /Example19/
+hi!  Example20   cterm=bold  ctermfg=20   |  syn  match  Example20   /Example20/
+hi!  Example21   cterm=bold  ctermfg=21   |  syn  match  Example21   /Example21/
+hi!  Example22   cterm=bold  ctermfg=22   |  syn  match  Example22   /Example22/
+hi!  Example23   cterm=bold  ctermfg=23   |  syn  match  Example23   /Example23/
+hi!  Example24   cterm=bold  ctermfg=24   |  syn  match  Example24   /Example24/
+hi!  Example25   cterm=bold  ctermfg=25   |  syn  match  Example25   /Example25/
+hi!  Example26   cterm=bold  ctermfg=26   |  syn  match  Example26   /Example26/
+hi!  Example27   cterm=bold  ctermfg=27   |  syn  match  Example27   /Example27/
+hi!  Example28   cterm=bold  ctermfg=28   |  syn  match  Example28   /Example28/
+hi!  Example29   cterm=bold  ctermfg=29   |  syn  match  Example29   /Example29/
+hi!  Example30   cterm=bold  ctermfg=30   |  syn  match  Example30   /Example30/
+hi!  Example31   cterm=bold  ctermfg=31   |  syn  match  Example31   /Example31/
+hi!  Example32   cterm=bold  ctermfg=32   |  syn  match  Example32   /Example32/
+hi!  Example33   cterm=bold  ctermfg=33   |  syn  match  Example33   /Example33/
+hi!  Example34   cterm=bold  ctermfg=34   |  syn  match  Example34   /Example34/
+hi!  Example35   cterm=bold  ctermfg=35   |  syn  match  Example35   /Example35/
+hi!  Example36   cterm=bold  ctermfg=36   |  syn  match  Example36   /Example36/
+hi!  Example37   cterm=bold  ctermfg=37   |  syn  match  Example37   /Example37/
+hi!  Example38   cterm=bold  ctermfg=38   |  syn  match  Example38   /Example38/
+hi!  Example39   cterm=bold  ctermfg=39   |  syn  match  Example39   /Example39/
+hi!  Example40   cterm=bold  ctermfg=40   |  syn  match  Example40   /Example40/
+hi!  Example41   cterm=bold  ctermfg=41   |  syn  match  Example41   /Example41/
+hi!  Example42   cterm=bold  ctermfg=42   |  syn  match  Example42   /Example42/
+hi!  Example43   cterm=bold  ctermfg=43   |  syn  match  Example43   /Example43/
+hi!  Example44   cterm=bold  ctermfg=44   |  syn  match  Example44   /Example44/
+hi!  Example45   cterm=bold  ctermfg=45   |  syn  match  Example45   /Example45/
+hi!  Example46   cterm=bold  ctermfg=46   |  syn  match  Example46   /Example46/
+hi!  Example47   cterm=bold  ctermfg=47   |  syn  match  Example47   /Example47/
+hi!  Example48   cterm=bold  ctermfg=48   |  syn  match  Example48   /Example48/
+hi!  Example49   cterm=bold  ctermfg=49   |  syn  match  Example49   /Example49/
+hi!  Example50   cterm=bold  ctermfg=50   |  syn  match  Example50   /Example50/
+hi!  Example51   cterm=bold  ctermfg=51   |  syn  match  Example51   /Example51/
+hi!  Example52   cterm=bold  ctermfg=52   |  syn  match  Example52   /Example52/
+hi!  Example53   cterm=bold  ctermfg=53   |  syn  match  Example53   /Example53/
+hi!  Example54   cterm=bold  ctermfg=54   |  syn  match  Example54   /Example54/
+hi!  Example55   cterm=bold  ctermfg=55   |  syn  match  Example55   /Example55/
+hi!  Example56   cterm=bold  ctermfg=56   |  syn  match  Example56   /Example56/
+hi!  Example57   cterm=bold  ctermfg=57   |  syn  match  Example57   /Example57/
+hi!  Example58   cterm=bold  ctermfg=58   |  syn  match  Example58   /Example58/
+hi!  Example59   cterm=bold  ctermfg=59   |  syn  match  Example59   /Example59/
+hi!  Example60   cterm=bold  ctermfg=60   |  syn  match  Example60   /Example60/
+hi!  Example61   cterm=bold  ctermfg=61   |  syn  match  Example61   /Example61/
+hi!  Example62   cterm=bold  ctermfg=62   |  syn  match  Example62   /Example62/
+hi!  Example63   cterm=bold  ctermfg=63   |  syn  match  Example63   /Example63/
+hi!  Example64   cterm=bold  ctermfg=64   |  syn  match  Example64   /Example64/
+hi!  Example65   cterm=bold  ctermfg=65   |  syn  match  Example65   /Example65/
+hi!  Example66   cterm=bold  ctermfg=66   |  syn  match  Example66   /Example66/
+hi!  Example67   cterm=bold  ctermfg=67   |  syn  match  Example67   /Example67/
+hi!  Example68   cterm=bold  ctermfg=68   |  syn  match  Example68   /Example68/
+hi!  Example69   cterm=bold  ctermfg=69   |  syn  match  Example69   /Example69/
+hi!  Example70   cterm=bold  ctermfg=70   |  syn  match  Example70   /Example70/
+hi!  Example71   cterm=bold  ctermfg=71   |  syn  match  Example71   /Example71/
+hi!  Example72   cterm=bold  ctermfg=72   |  syn  match  Example72   /Example72/
+hi!  Example73   cterm=bold  ctermfg=73   |  syn  match  Example73   /Example73/
+hi!  Example74   cterm=bold  ctermfg=74   |  syn  match  Example74   /Example74/
+hi!  Example75   cterm=bold  ctermfg=75   |  syn  match  Example75   /Example75/
+hi!  Example76   cterm=bold  ctermfg=76   |  syn  match  Example76   /Example76/
+hi!  Example77   cterm=bold  ctermfg=77   |  syn  match  Example77   /Example77/
+hi!  Example78   cterm=bold  ctermfg=78   |  syn  match  Example78   /Example78/
+hi!  Example79   cterm=bold  ctermfg=79   |  syn  match  Example79   /Example79/
+hi!  Example80   cterm=bold  ctermfg=80   |  syn  match  Example80   /Example80/
+hi!  Example81   cterm=bold  ctermfg=81   |  syn  match  Example81   /Example81/
+hi!  Example82   cterm=bold  ctermfg=82   |  syn  match  Example82   /Example82/
+hi!  Example83   cterm=bold  ctermfg=83   |  syn  match  Example83   /Example83/
+hi!  Example84   cterm=bold  ctermfg=84   |  syn  match  Example84   /Example84/
+hi!  Example85   cterm=bold  ctermfg=85   |  syn  match  Example85   /Example85/
+hi!  Example86   cterm=bold  ctermfg=86   |  syn  match  Example86   /Example86/
+hi!  Example87   cterm=bold  ctermfg=87   |  syn  match  Example87   /Example87/
+hi!  Example88   cterm=bold  ctermfg=88   |  syn  match  Example88   /Example88/
+hi!  Example89   cterm=bold  ctermfg=89   |  syn  match  Example89   /Example89/
+hi!  Example90   cterm=bold  ctermfg=90   |  syn  match  Example90   /Example90/
+hi!  Example91   cterm=bold  ctermfg=91   |  syn  match  Example91   /Example91/
+hi!  Example92   cterm=bold  ctermfg=92   |  syn  match  Example92   /Example92/
+hi!  Example93   cterm=bold  ctermfg=93   |  syn  match  Example93   /Example93/
+hi!  Example94   cterm=bold  ctermfg=94   |  syn  match  Example94   /Example94/
+hi!  Example95   cterm=bold  ctermfg=95   |  syn  match  Example95   /Example95/
+hi!  Example96   cterm=bold  ctermfg=96   |  syn  match  Example96   /Example96/
+hi!  Example97   cterm=bold  ctermfg=97   |  syn  match  Example97   /Example97/
+hi!  Example98   cterm=bold  ctermfg=98   |  syn  match  Example98   /Example98/
+hi!  Example99   cterm=bold  ctermfg=99   |  syn  match  Example99   /Example99/
+hi!  Example100  cterm=bold  ctermfg=100  |  syn  match  Example100  /Example100/
+hi!  Example101  cterm=bold  ctermfg=101  |  syn  match  Example101  /Example101/
+hi!  Example102  cterm=bold  ctermfg=102  |  syn  match  Example102  /Example102/
+hi!  Example103  cterm=bold  ctermfg=103  |  syn  match  Example103  /Example103/
+hi!  Example104  cterm=bold  ctermfg=104  |  syn  match  Example104  /Example104/
+hi!  Example105  cterm=bold  ctermfg=105  |  syn  match  Example105  /Example105/
+hi!  Example106  cterm=bold  ctermfg=106  |  syn  match  Example106  /Example106/
+hi!  Example107  cterm=bold  ctermfg=107  |  syn  match  Example107  /Example107/
+hi!  Example108  cterm=bold  ctermfg=108  |  syn  match  Example108  /Example108/
+hi!  Example109  cterm=bold  ctermfg=109  |  syn  match  Example109  /Example109/
+hi!  Example110  cterm=bold  ctermfg=110  |  syn  match  Example110  /Example110/
+hi!  Example111  cterm=bold  ctermfg=111  |  syn  match  Example111  /Example111/
+hi!  Example112  cterm=bold  ctermfg=112  |  syn  match  Example112  /Example112/
+hi!  Example113  cterm=bold  ctermfg=113  |  syn  match  Example113  /Example113/
+hi!  Example114  cterm=bold  ctermfg=114  |  syn  match  Example114  /Example114/
+hi!  Example115  cterm=bold  ctermfg=115  |  syn  match  Example115  /Example115/
+hi!  Example116  cterm=bold  ctermfg=116  |  syn  match  Example116  /Example116/
+hi!  Example117  cterm=bold  ctermfg=117  |  syn  match  Example117  /Example117/
+hi!  Example118  cterm=bold  ctermfg=118  |  syn  match  Example118  /Example118/
+hi!  Example119  cterm=bold  ctermfg=119  |  syn  match  Example119  /Example119/
+hi!  Example120  cterm=bold  ctermfg=120  |  syn  match  Example120  /Example120/
+hi!  Example121  cterm=bold  ctermfg=121  |  syn  match  Example121  /Example121/
+hi!  Example122  cterm=bold  ctermfg=122  |  syn  match  Example122  /Example122/
+hi!  Example123  cterm=bold  ctermfg=123  |  syn  match  Example123  /Example123/
+hi!  Example124  cterm=bold  ctermfg=124  |  syn  match  Example124  /Example124/
+hi!  Example125  cterm=bold  ctermfg=125  |  syn  match  Example125  /Example125/
+hi!  Example126  cterm=bold  ctermfg=126  |  syn  match  Example126  /Example126/
+hi!  Example127  cterm=bold  ctermfg=127  |  syn  match  Example127  /Example127/
+hi!  Example128  cterm=bold  ctermfg=128  |  syn  match  Example128  /Example128/
+hi!  Example129  cterm=bold  ctermfg=129  |  syn  match  Example129  /Example129/
+hi!  Example130  cterm=bold  ctermfg=130  |  syn  match  Example130  /Example130/  "  Brown
+hi!  Example131  cterm=bold  ctermfg=131  |  syn  match  Example131  /Example131/
+hi!  Example132  cterm=bold  ctermfg=132  |  syn  match  Example132  /Example132/
+hi!  Example133  cterm=bold  ctermfg=133  |  syn  match  Example133  /Example133/
+hi!  Example134  cterm=bold  ctermfg=134  |  syn  match  Example134  /Example134/
+hi!  Example135  cterm=bold  ctermfg=135  |  syn  match  Example135  /Example135/
+hi!  Example136  cterm=bold  ctermfg=136  |  syn  match  Example136  /Example136/
+hi!  Example137  cterm=bold  ctermfg=137  |  syn  match  Example137  /Example137/
+hi!  Example138  cterm=bold  ctermfg=138  |  syn  match  Example138  /Example138/
+hi!  Example139  cterm=bold  ctermfg=139  |  syn  match  Example139  /Example139/
+hi!  Example140  cterm=bold  ctermfg=140  |  syn  match  Example140  /Example140/
+hi!  Example141  cterm=bold  ctermfg=141  |  syn  match  Example141  /Example141/
+hi!  Example142  cterm=bold  ctermfg=142  |  syn  match  Example142  /Example142/
+hi!  Example143  cterm=bold  ctermfg=143  |  syn  match  Example143  /Example143/
+hi!  Example144  cterm=bold  ctermfg=144  |  syn  match  Example144  /Example144/
+hi!  Example145  cterm=bold  ctermfg=145  |  syn  match  Example145  /Example145/
+hi!  Example146  cterm=bold  ctermfg=146  |  syn  match  Example146  /Example146/
+hi!  Example147  cterm=bold  ctermfg=147  |  syn  match  Example147  /Example147/
+hi!  Example148  cterm=bold  ctermfg=148  |  syn  match  Example148  /Example148/
+hi!  Example149  cterm=bold  ctermfg=149  |  syn  match  Example149  /Example149/
+hi!  Example150  cterm=bold  ctermfg=150  |  syn  match  Example150  /Example150/
+hi!  Example151  cterm=bold  ctermfg=151  |  syn  match  Example151  /Example151/
+hi!  Example152  cterm=bold  ctermfg=152  |  syn  match  Example152  /Example152/
+hi!  Example153  cterm=bold  ctermfg=153  |  syn  match  Example153  /Example153/
+hi!  Example154  cterm=bold  ctermfg=154  |  syn  match  Example154  /Example154/
+hi!  Example155  cterm=bold  ctermfg=155  |  syn  match  Example155  /Example155/
+hi!  Example156  cterm=bold  ctermfg=156  |  syn  match  Example156  /Example156/
+hi!  Example157  cterm=bold  ctermfg=157  |  syn  match  Example157  /Example157/
+hi!  Example158  cterm=bold  ctermfg=158  |  syn  match  Example158  /Example158/
+hi!  Example159  cterm=bold  ctermfg=159  |  syn  match  Example159  /Example159/
+hi!  Example160  cterm=bold  ctermfg=160  |  syn  match  Example160  /Example160/
+hi!  Example161  cterm=bold  ctermfg=161  |  syn  match  Example161  /Example161/
+hi!  Example162  cterm=bold  ctermfg=162  |  syn  match  Example162  /Example162/
+hi!  Example163  cterm=bold  ctermfg=163  |  syn  match  Example163  /Example163/
+hi!  Example164  cterm=bold  ctermfg=164  |  syn  match  Example164  /Example164/
+hi!  Example165  cterm=bold  ctermfg=165  |  syn  match  Example165  /Example165/
+hi!  Example166  cterm=bold  ctermfg=166  |  syn  match  Example166  /Example166/
+hi!  Example167  cterm=bold  ctermfg=167  |  syn  match  Example167  /Example167/
+hi!  Example168  cterm=bold  ctermfg=168  |  syn  match  Example168  /Example168/
+hi!  Example169  cterm=bold  ctermfg=169  |  syn  match  Example169  /Example169/
+hi!  Example170  cterm=bold  ctermfg=170  |  syn  match  Example170  /Example170/
+hi!  Example171  cterm=bold  ctermfg=171  |  syn  match  Example171  /Example171/
+hi!  Example172  cterm=bold  ctermfg=172  |  syn  match  Example172  /Example172/
+hi!  Example173  cterm=bold  ctermfg=173  |  syn  match  Example173  /Example173/
+hi!  Example174  cterm=bold  ctermfg=174  |  syn  match  Example174  /Example174/
+hi!  Example175  cterm=bold  ctermfg=175  |  syn  match  Example175  /Example175/
+hi!  Example176  cterm=bold  ctermfg=176  |  syn  match  Example176  /Example176/
+hi!  Example177  cterm=bold  ctermfg=177  |  syn  match  Example177  /Example177/
+hi!  Example178  cterm=bold  ctermfg=178  |  syn  match  Example178  /Example178/
+hi!  Example179  cterm=bold  ctermfg=179  |  syn  match  Example179  /Example179/
+hi!  Example180  cterm=bold  ctermfg=180  |  syn  match  Example180  /Example180/
+hi!  Example181  cterm=bold  ctermfg=181  |  syn  match  Example181  /Example181/
+hi!  Example182  cterm=bold  ctermfg=182  |  syn  match  Example182  /Example182/
+hi!  Example183  cterm=bold  ctermfg=183  |  syn  match  Example183  /Example183/
+hi!  Example184  cterm=bold  ctermfg=184  |  syn  match  Example184  /Example184/
+hi!  Example185  cterm=bold  ctermfg=185  |  syn  match  Example185  /Example185/
+hi!  Example186  cterm=bold  ctermfg=186  |  syn  match  Example186  /Example186/
+hi!  Example187  cterm=bold  ctermfg=187  |  syn  match  Example187  /Example187/
+hi!  Example188  cterm=bold  ctermfg=188  |  syn  match  Example188  /Example188/
+hi!  Example189  cterm=bold  ctermfg=189  |  syn  match  Example189  /Example189/
+hi!  Example190  cterm=bold  ctermfg=190  |  syn  match  Example190  /Example190/
+hi!  Example191  cterm=bold  ctermfg=191  |  syn  match  Example191  /Example191/
+hi!  Example192  cterm=bold  ctermfg=192  |  syn  match  Example192  /Example192/
+hi!  Example193  cterm=bold  ctermfg=193  |  syn  match  Example193  /Example193/
+hi!  Example194  cterm=bold  ctermfg=194  |  syn  match  Example194  /Example194/
+hi!  Example195  cterm=bold  ctermfg=195  |  syn  match  Example195  /Example195/
+hi!  Example196  cterm=bold  ctermfg=196  |  syn  match  Example196  /Example196/
+hi!  Example197  cterm=bold  ctermfg=197  |  syn  match  Example197  /Example197/
+hi!  Example198  cterm=bold  ctermfg=198  |  syn  match  Example198  /Example198/
+hi!  Example199  cterm=bold  ctermfg=199  |  syn  match  Example199  /Example199/
+hi!  Example200  cterm=bold  ctermfg=200  |  syn  match  Example200  /Example200/
+hi!  Example201  cterm=bold  ctermfg=201  |  syn  match  Example201  /Example201/
+hi!  Example202  cterm=bold  ctermfg=202  |  syn  match  Example202  /Example202/
+hi!  Example203  cterm=bold  ctermfg=203  |  syn  match  Example203  /Example203/
+hi!  Example204  cterm=bold  ctermfg=204  |  syn  match  Example204  /Example204/
+hi!  Example205  cterm=bold  ctermfg=205  |  syn  match  Example205  /Example205/
+hi!  Example206  cterm=bold  ctermfg=206  |  syn  match  Example206  /Example206/
+hi!  Example207  cterm=bold  ctermfg=207  |  syn  match  Example207  /Example207/
+hi!  Example208  cterm=bold  ctermfg=208  |  syn  match  Example208  /Example208/
+hi!  Example209  cterm=bold  ctermfg=209  |  syn  match  Example209  /Example209/
+hi!  Example210  cterm=bold  ctermfg=210  |  syn  match  Example210  /Example210/
+hi!  Example211  cterm=bold  ctermfg=211  |  syn  match  Example211  /Example211/
+hi!  Example212  cterm=bold  ctermfg=212  |  syn  match  Example212  /Example212/
+hi!  Example213  cterm=bold  ctermfg=213  |  syn  match  Example213  /Example213/
+hi!  Example214  cterm=bold  ctermfg=214  |  syn  match  Example214  /Example214/
+hi!  Example215  cterm=bold  ctermfg=215  |  syn  match  Example215  /Example215/
+hi!  Example216  cterm=bold  ctermfg=216  |  syn  match  Example216  /Example216/
+hi!  Example217  cterm=bold  ctermfg=217  |  syn  match  Example217  /Example217/
+hi!  Example218  cterm=bold  ctermfg=218  |  syn  match  Example218  /Example218/
+hi!  Example219  cterm=bold  ctermfg=219  |  syn  match  Example219  /Example219/
+hi!  Example220  cterm=bold  ctermfg=220  |  syn  match  Example220  /Example220/
+hi!  Example221  cterm=bold  ctermfg=221  |  syn  match  Example221  /Example221/
+hi!  Example222  cterm=bold  ctermfg=222  |  syn  match  Example222  /Example222/
+hi!  Example223  cterm=bold  ctermfg=223  |  syn  match  Example223  /Example223/
+hi!  Example224  cterm=bold  ctermfg=224  |  syn  match  Example224  /Example224/
+hi!  Example225  cterm=bold  ctermfg=225  |  syn  match  Example225  /Example225/
+hi!  Example226  cterm=bold  ctermfg=226  |  syn  match  Example226  /Example226/
+hi!  Example227  cterm=bold  ctermfg=227  |  syn  match  Example227  /Example227/
+hi!  Example228  cterm=bold  ctermfg=228  |  syn  match  Example228  /Example228/
+hi!  Example229  cterm=bold  ctermfg=229  |  syn  match  Example229  /Example229/
+hi!  Example230  cterm=bold  ctermfg=230  |  syn  match  Example230  /Example230/
+hi!  Example231  cterm=bold  ctermfg=231  |  syn  match  Example231  /Example231/
+hi!  Example232  cterm=bold  ctermfg=232  |  syn  match  Example232  /Example232/
+hi!  Example233  cterm=bold  ctermfg=233  |  syn  match  Example233  /Example233/
+hi!  Example234  cterm=bold  ctermfg=234  |  syn  match  Example234  /Example234/
+hi!  Example235  cterm=bold  ctermfg=235  |  syn  match  Example235  /Example235/
+hi!  Example236  cterm=bold  ctermfg=236  |  syn  match  Example236  /Example236/
+hi!  Example237  cterm=bold  ctermfg=237  |  syn  match  Example237  /Example237/
+hi!  Example238  cterm=bold  ctermfg=238  |  syn  match  Example238  /Example238/
+hi!  Example239  cterm=bold  ctermfg=239  |  syn  match  Example239  /Example239/
+hi!  Example240  cterm=bold  ctermfg=240  |  syn  match  Example240  /Example240/
+hi!  Example241  cterm=bold  ctermfg=241  |  syn  match  Example241  /Example241/
+hi!  Example242  cterm=bold  ctermfg=242  |  syn  match  Example242  /Example242/
+hi!  Example243  cterm=bold  ctermfg=243  |  syn  match  Example243  /Example243/
+hi!  Example244  cterm=bold  ctermfg=244  |  syn  match  Example244  /Example244/
+hi!  Example245  cterm=bold  ctermfg=245  |  syn  match  Example245  /Example245/
+hi!  Example246  cterm=bold  ctermfg=246  |  syn  match  Example246  /Example246/
+hi!  Example247  cterm=bold  ctermfg=247  |  syn  match  Example247  /Example247/
+hi!  Example248  cterm=bold  ctermfg=248  |  syn  match  Example248  /Example248/
+hi!  Example249  cterm=bold  ctermfg=249  |  syn  match  Example249  /Example249/
+hi!  Example250  cterm=bold  ctermfg=250  |  syn  match  Example250  /Example250/
+hi!  Example251  cterm=bold  ctermfg=251  |  syn  match  Example251  /Example251/
+hi!  Example252  cterm=bold  ctermfg=252  |  syn  match  Example252  /Example252/
+hi!  Example253  cterm=bold  ctermfg=253  |  syn  match  Example253  /Example253/
+hi!  Example254  cterm=bold  ctermfg=254  |  syn  match  Example254  /Example254/
+hi!  Example255  cterm=bold  ctermfg=255  |  syn  match  Example255  /Example255/
+hi!  Example256  cterm=bold  ctermfg=256  |  syn  match  Example256  /Example256/
