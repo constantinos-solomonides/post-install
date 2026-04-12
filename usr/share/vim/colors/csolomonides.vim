@@ -36,7 +36,7 @@ hi  htmlH3          cterm=bold            ctermfg=140
 hi  htmlH4          cterm=bold            ctermfg=150
 hi  NonText         ctermfg=1
 hi  htmlItalic      cterm=underline
-hi  htmlBold        cterm=bold
+hi  htmlBold        cterm=bold            ctermfg=NONE ctermbg=NONE
 hi  htmlBoldItalic  cterm=bold,underline
 hi  htmlTagName     cterm=bold            ctermfg=130
 hi  PreProc         cterm=bold            ctermfg=11
@@ -69,20 +69,3 @@ hi link markdownH3Delimiter     htmlH3
 hi link markdownH4Delimiter     htmlH4
 hi! link SpellLocal             SpellReview
 hi! link SpellRare              SpellReview
-
-" Color reference.
-" hi!  Example1    cterm=bold  ctermfg=1    |  syn  match  Example1    /Example1/    "  Red
-" hi!  Example2    cterm=bold  ctermfg=2    |  syn  match  Example2    /Example2/    "  Olive   green
-" hi!  Example3    cterm=bold  ctermfg=3    |  syn  match  Example3    /Example3/    "  Yellow
-" hi!  Example4    cterm=bold  ctermfg=4    |  syn  match  Example4    /Example4/    "  Light   blue
-" hi!  Example5    cterm=bold  ctermfg=5    |  syn  match  Example5    /Example5/    "  Purple
-" hi!  Example6    cterm=bold  ctermfg=6    |  syn  match  Example6    /Example6/    "  Light   turquoise
-" hi!  Example7    cterm=bold  ctermfg=7    |  syn  match  Example7    /Example7/    "  Very    light yellow
-" hi!  Example8    cterm=bold  ctermfg=8    |  syn  match  Example8    /Example8/    "  Black   black
-" hi!  Example9    cterm=bold  ctermfg=9    |  syn  match  Example9    /Example9/    "  Bright  red
-" hi!  Example10   cterm=bold  ctermfg=10   |  syn  match  Example10   /Example10/   "  Light   green
-" hi!  Example11   cterm=bold  ctermfg=11   |  syn  match  Example11   /Example11/   "  Light   yellow
-" hi!  Example12   cterm=bold  ctermfg=12   |  syn  match  Example12   /Example12/   "  Light   blue
-" hi!  Example13   cterm=bold  ctermfg=13   |  syn  match  Example13   /Example13/   "  Light   purple / rose
-" hi!  Example14   cterm=bold  ctermfg=14   |  syn  match  Example14   /Example14/   "  Light   green
-" hi!  Example130  cterm=bold  ctermfg=130  |  syn  match  Example130  /Example130/  "  Brown

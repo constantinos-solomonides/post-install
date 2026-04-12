@@ -1,5 +1,15 @@
-" TODO add description
-" TODO Add modifiable bold / underline / italics etc
+" Colorscheme whose only purpose is to help identify color combinations
+"
+" It identifies four (4) categories of colorization:
+"   * Colorized (256 colours)
+"   * Colorized bold (256 colours)
+"   * Colorized bold underlined (256 colours)
+"   * Colorized bold italic (256 colours)
+"
+" The elements are matched based on the syntax of `vimcolourstest.vim` file and the user may create pseudo-code, similar
+" to valid code, to allow them to decide on colouring
+" The pseudo-code should be minimal, to make updating it easier, as there is no autoatic "knob" that allows mass-tuning
+
 let g:colors_name="test_vim_colours"
 
 hi!  Example1    ctermfg=1
@@ -1029,4 +1039,3 @@ hi!  buExample253  cterm=bold,underline  ctermfg=253
 hi!  buExample254  cterm=bold,underline  ctermfg=254
 hi!  buExample255  cterm=bold,underline  ctermfg=255
 hi!  buExample256  cterm=bold,underline  ctermfg=256
-
