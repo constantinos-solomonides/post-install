@@ -267,6 +267,23 @@ set nomodeline
     """ ----------------------------------------------------------------------
      "" BEGIN Functions
       "
+
+        function! MakeList()
+            let a = getline('.')
+            let b = trim(a)
+            let c = split(substitute(substitute(b, "\\<and\\>", ",", ""), ",[ \\t,]*,", ",", "g"),",")
+            let d = substitute(a, "^\\(\\s\\+\\).*", "\\1", "")
+            let e = []
+            for i in c
+                call insert(e, d . "* " . substitute(trim(i), ".", "\\U&", ""), -1)
+            endfor
+            for i in e
+                call append('.', i)
+            endfor
+            .d_
+        endfunction
+
+
         function! SaveColors()
           if buflisted(bufname("%")) == 0
             return
