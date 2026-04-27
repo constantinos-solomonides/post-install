@@ -1,8 +1,9 @@
 #!/bin/bash
+#set -x
 count=10;
 pid=$$;
 while ((pid != 1)); do
-    if ( ps -o comm -h -p "${pid}" | grep -q -e 'screen' ; ); then
+    if ( ps -o comm -h -p "${pid// }" | grep -q -e 'screen' ; ); then
         _title=$(screen -Q title)
         if [[ ${_title} =~ ^bash$ ]]; then
             screen -X title CLI;
@@ -11,6 +12,7 @@ while ((pid != 1)); do
     elif (( count-- == 0)); then
         break;
     else
-        pid=$(ps -o ppid -h -p "${pid}");
+        pid=$(ps -o ppid -h -p "${pid// }");
     fi;
 done
+#set +x
