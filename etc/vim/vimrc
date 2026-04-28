@@ -355,7 +355,7 @@ set nomodeline
             return l:return
           endfunction " /InSearchList
 
-
+          let l:term_buffers = term_list()
           for l:j in range(tabpagenr('$'))
             let l:modified_str = ""
             let l:buflist = tabpagebuflist(l:j+1)
@@ -371,6 +371,9 @@ set nomodeline
               if (len("" . l:buffername ) == 0)
                 let l:buffername = printf("[No Name %d]", bufnr(l:buffer))
               endif " /if len == 0
+              if (index(l:term_buffers, l:buffer) != -1)
+                let l:buffername = printf("%s [%s]", l:buffername, term_gettitle(l:buffer))
+              endif
               let l:buffernames = add(l:buffernames, l:buffername)
             endfor " /for l:buffer in
             let l:buffers = join(l:buffernames, ' || ')
