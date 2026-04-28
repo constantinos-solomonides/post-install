@@ -69,7 +69,7 @@ if myterm == "xterm" || myterm == "kvt" || myterm == "gnome"
     map! <ESC>Om  -
     map! <ESC>Ok  +
     map! <ESC>Ol  ,
-    map! <ESC>OM
+    map! <ESC>OM  | "A special character, ^M is mapped here
     map! <ESC>Ow  7
     map! <ESC>Ox  8
     map! <ESC>Oy  9
@@ -87,7 +87,7 @@ if myterm == "xterm" || myterm == "kvt" || myterm == "gnome"
     map <ESC>Om  -
     map <ESC>Ok  +
     map <ESC>Ol  ,
-    map <ESC>OM
+    map <ESC>OM  | "A special character, ^M is mapped here
     map <ESC>Ow  7
     map <ESC>Ox  8
     map <ESC>Oy  9
@@ -307,21 +307,12 @@ set nomodeline
             let b:clrscheme = getbufvar("%", "colorscheme")
             if len(b:clrscheme) != 0
               exec printf("colorscheme %s", b:clrscheme)
-            elseif 'sh' == &syntax
-                colorscheme colorer
-            elseif 'c' == &syntax
-                colorscheme chocolateliquor
-            elseif 'python' == &syntax
-                colorscheme settlemyer
-            elseif 'make' == &syntax
-                colorscheme colorer
-                set noexpandtab
             else
-                colorscheme default
+                colorscheme csolomonides
             endif
           catch
             echo "Exception: " . v:exception
-            colorscheme kellys2
+                colorscheme default
           endtry
             hi User1 term=inverse,bold cterm=inverse,bold ctermfg=blue
             hi User2 term=inverse,bold cterm=inverse,bold ctermfg=green
@@ -428,6 +419,7 @@ set nomodeline
         set showtabline     =0
         set tw              =120
         set undodir         =${HOME}/.vim/undo/
+        set termwinkey      =<C-x>
         set undofile
         set ruler
         set runtimepath     +=/usr/share/vim/common/
@@ -450,9 +442,6 @@ set nomodeline
         noremap <F2> "+p
         inoremap <F2> <C-R>+
         noremap <F3> "+y
-        noremap  <C-c> <Esc>
-        cnoremap  <C-c> <Esc>
-        inoremap <C-c> <Esc>
         noremap gB :bprevious<Return>
         noremap gb :bnext<Return>
         map tt :tabnew<CR>

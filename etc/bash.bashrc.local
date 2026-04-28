@@ -14,6 +14,7 @@
 
 #ECHO=/usr/bin/echo
 ECHO=""
+#set -x
 if [ ! -z "${PS1}" ]; then
     # Activate Completion.
     [ -r /usr/share/bash-completion/bash_completion ] && \
@@ -33,3 +34,4 @@ if [ ! -z "${PS1}" ]; then
     done #/for all files in bashrc.local.d
 fi # /if empty PS1
 # ELSE do nothing.
+#set -x
