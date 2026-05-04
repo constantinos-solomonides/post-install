@@ -31,17 +31,38 @@ function get_next_screen_session_name(){
 
 }
 
+function get_first_detached_screen(){
+    awk -v ssn=${1} -f - <(screen -ls) <<"END" | sort -n | head -n 1
+        /[0-9]+\.[0-9A-Za-z_-]+/{
+            if(index($0, ssn) && index($0, "detached")) {
+                a=$1;
+                sub("[0-9]*\\.", "", a);
+                print(a)
+            }
+        }
+END
+}
+
+
 SCREEN_SESSION_NAME=$( get_screen_session_name )
 
 [ "true" == "${SCREEN_SESSION_ACTIVE}" ] || {
     # Set `SCREEN_SESSION_ACTIVE` to to and export it to ensure there's no duplicate sub-screen sessiosn starting
     SCREEN_SESSION_ACTIVE="true"; readonly SCREEN_SESSION_ACTIVE; export SCREEN_SESSION_ACTIVE;
-    sentinels_exist || { # Start a screen session
-        { # Try re-connecting to the default screen session, and if not possible, create a new with the default name
-            screen -r ${SCREEN_SESSION_NAME} 2>/dev/null || screen -R $(get_next_screen_session_name);
-        } && { # This takes place after the screen was run successfuly (after the last process exits
-            sentinels_exist || { sleep 1s; exit; }
+    sentinels_exist || {
+        {
+        # If no screen sessions are running, start a new one (-r will fail here)
+            screen -ls | grep -q -e 'No Sockets found in' && screen -S ${SCREEN_SESSION_NAME};
+        } || {
+        # Try re-connecting to the first properly named, detached session
+            _first_detached=$(get_first_detached_screen ${SCREEN_SESSION_NAME});
+            [ ! -z "${_first_detached}" ] && screen -r ${_first_detached};
+        } || {
+        # Create a new session
+            screen -S $(get_next_screen_session_name);
         }
+    } && { # This takes place after the screen was run successfuly (after the last process exits
+        sentinels_exist || { sleep 1s; exit; }
     }
 }
 
