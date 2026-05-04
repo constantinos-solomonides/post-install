@@ -1,17 +1,19 @@
+#!/bin/bash
 # Start terminals in screen mode.
-session_name_file=${HOME}/default_session_name
-SENTINEL_ONE=/tmp/no_screen
-SENTINEL_TWO=${HOME}/no_screen
+session_name_file="${HOME}/default_session_name"
+SENTINEL_ONE="/tmp/no_screen"
+SENTINEL_TWO="${HOME}/no_screen"
+SESSION_DEFAULT_NAME="GENERIC"
 
 function get_screen_session_name(){
-    if [ -e "${session_name_file}" ]; then
-        _name=$( head -n 1 ${session_name_file})
-        if [ ! -z "${_name}" ]; then
-            echo ${_name}
-            return
-        fi
-    fi
-    echo GENERIC
+    # If the variable $SCREEN_SESSION_NAME is not empty, that's the name
+    [ ! -z "${SCREEN_SESSION_NAME}" ] && { echo "${SCREEN_SESSION_NAME}" && return; }
+
+    # If the file ${session_name_file} is not empty, that's the name
+    _name=$([ -e "${session_name_file}" ] && echo $(<${session_name_file});)
+    [ ! -z "${_name}" ] && { echo "${_name}" && return; }
+
+    echo "${SESSION_DEFAULT_NAME}";
 }
 
 function sentinels_exist(){
