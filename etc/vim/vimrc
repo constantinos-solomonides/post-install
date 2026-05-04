@@ -69,7 +69,7 @@ if myterm == "xterm" || myterm == "kvt" || myterm == "gnome"
     map! <ESC>Om  -
     map! <ESC>Ok  +
     map! <ESC>Ol  ,
-    map! <ESC>OM
+    map! <ESC>OM  | "A special character, ^M is mapped here
     map! <ESC>Ow  7
     map! <ESC>Ox  8
     map! <ESC>Oy  9
@@ -87,7 +87,7 @@ if myterm == "xterm" || myterm == "kvt" || myterm == "gnome"
     map <ESC>Om  -
     map <ESC>Ok  +
     map <ESC>Ol  ,
-    map <ESC>OM
+    map <ESC>OM  | "A special character, ^M is mapped here
     map <ESC>Ow  7
     map <ESC>Ox  8
     map <ESC>Oy  9
@@ -267,6 +267,23 @@ set nomodeline
     """ ----------------------------------------------------------------------
      "" BEGIN Functions
       "
+
+        function! MakeList()
+            let a = getline('.')
+            let b = trim(a)
+            let c = split(substitute(substitute(b, "\\<and\\>", ",", ""), ",[ \\t,]*,", ",", "g"),",")
+            let d = substitute(a, "^\\(\\s\\+\\).*", "\\1", "")
+            let e = []
+            for i in c
+                call insert(e, d . "* " . substitute(trim(i), ".", "\\U&", ""), -1)
+            endfor
+            for i in e
+                call append('.', i)
+            endfor
+            .d_
+        endfunction
+
+
         function! SaveColors()
           if buflisted(bufname("%")) == 0
             return
@@ -290,21 +307,12 @@ set nomodeline
             let b:clrscheme = getbufvar("%", "colorscheme")
             if len(b:clrscheme) != 0
               exec printf("colorscheme %s", b:clrscheme)
-            elseif 'sh' == &syntax
-                colorscheme colorer
-            elseif 'c' == &syntax
-                colorscheme chocolateliquor
-            elseif 'python' == &syntax
-                colorscheme settlemyer
-            elseif 'make' == &syntax
-                colorscheme colorer
-                set noexpandtab
             else
-                colorscheme default
+                colorscheme csolomonides
             endif
           catch
             echo "Exception: " . v:exception
-            colorscheme kellys2
+                colorscheme default
           endtry
             hi User1 term=inverse,bold cterm=inverse,bold ctermfg=blue
             hi User2 term=inverse,bold cterm=inverse,bold ctermfg=green
@@ -347,7 +355,7 @@ set nomodeline
             return l:return
           endfunction " /InSearchList
 
-
+          let l:term_buffers = term_list()
           for l:j in range(tabpagenr('$'))
             let l:modified_str = ""
             let l:buflist = tabpagebuflist(l:j+1)
@@ -363,6 +371,9 @@ set nomodeline
               if (len("" . l:buffername ) == 0)
                 let l:buffername = printf("[No Name %d]", bufnr(l:buffer))
               endif " /if len == 0
+              if (index(l:term_buffers, l:buffer) != -1)
+                let l:buffername = printf("%s [%s]", l:buffername, term_gettitle(l:buffer))
+              endif
               let l:buffernames = add(l:buffernames, l:buffername)
             endfor " /for l:buffer in
             let l:buffers = join(l:buffernames, ' || ')
@@ -411,6 +422,7 @@ set nomodeline
         set showtabline     =0
         set tw              =120
         set undodir         =${HOME}/.vim/undo/
+        set termwinkey      =<C-x>
         set undofile
         set ruler
         set runtimepath     +=/usr/share/vim/common/
@@ -433,9 +445,6 @@ set nomodeline
         noremap <F2> "+p
         inoremap <F2> <C-R>+
         noremap <F3> "+y
-        noremap  <C-c> <Esc>
-        cnoremap  <C-c> <Esc>
-        inoremap <C-c> <Esc>
         noremap gB :bprevious<Return>
         noremap gb :bnext<Return>
         map tt :tabnew<CR>
