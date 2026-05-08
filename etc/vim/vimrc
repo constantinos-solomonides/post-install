@@ -408,6 +408,7 @@ set nomodeline
       "
         set autoindent
         set relativenumber
+        set linebreak
         set number
         set history         =600
         set laststatus      =2
