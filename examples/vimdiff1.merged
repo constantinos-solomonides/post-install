@@ -1,4 +1,8 @@
-Used to validate coloring of vimdiffs
-diff3
-same
-sameagain
+<<<<<<< HEAD
+HELLO, WORLD
+||||||| 09fd639
+hello, world
+=======
+hello, world
+It's a lovely day today, isn't it?
+>>>>>>> branch_b
