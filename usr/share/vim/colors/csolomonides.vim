@@ -36,15 +36,19 @@ hi  htmlH3          cterm=bold            ctermfg=140
 hi  htmlH4          cterm=bold            ctermfg=150
 hi  NonText         ctermfg=1
 hi  htmlItalic      cterm=underline
-hi  htmlBold        cterm=bold            ctermfg=NONE ctermbg=NONE
+hi  htmlBold        cterm=bold            ctermfg=NONE          ctermbg=NONE
 hi  htmlBoldItalic  cterm=bold,underline
 hi  htmlTagName     cterm=bold            ctermfg=130
 hi  PreProc         cterm=bold            ctermfg=11
 hi  Tags            ctermfg=14
-hi  SpellBad        cterm=underline       ctermfg=1           ctermbg=NONE
-hi  SpellReview     cterm=underline       ctermfg=11          ctermbg=NONE
-hi  User1           cterm=inverse,bold    cterm=inverse,bold  ctermfg=12
-hi  User2           cterm=inverse,bold    cterm=inverse,bold  ctermfg=14
+hi  SpellBad        cterm=underline       ctermfg=1             ctermbg=NONE
+hi  SpellReview     cterm=underline       ctermfg=11            ctermbg=NONE
+hi  User1           cterm=inverse,bold    ctermfg=12
+hi  User2           cterm=inverse,bold    ctermfg=14
+hi  DiffAdd                               ctermbg=29
+hi  DiffChange                            ctermbg=13
+hi  DiffDelete                            ctermbg=64            ctermfg=15
+hi  DiffText        cterm=bold            ctermbg=9             ctermfg=8
 
 hi link Character               Constant
 hi link Number                  Constant
