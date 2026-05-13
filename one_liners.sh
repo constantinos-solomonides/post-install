@@ -1,6 +1,6 @@
 #!/bin/false
 # Do **not** run this file, use as reference
-# This file stores in a "deconstructed" format one-linesrs, with explanation of their sections
+# This file stores in a "deconstructed" format one-liners, with explanation of their sections
 # NOTE: The weird alignment is to allow explanation while showing blocks. Each section should be one long line. Merge
 # and convert all double spaces to single, then run from CLI
 
@@ -20,7 +20,7 @@
 #   * OR start an new instance of an ssh agent
 #       * Launch ssh-agent and redirect its output to `$file`
 #       * Source `$file` so that information becomes accessible
-#   * AND make sure that there is an an identity OR add it
+#   * AND make sure that there is an identity OR add it
 # ---
 # * Check if running in `screen`
 #   * Starting from the **current** process ID
@@ -77,7 +77,7 @@ file="${DUMMYHOME}/agent";
 #   * OR start an new instance of an ssh agent
 #       * Launch ssh-agent and redirect its output to `$file`
 #       * Source `$file` so that information becomes accessible
-#   * AND make sure that there is an an identity OR add it
+#   * AND make sure that there is an identity OR add it
 # ---
 # * Check if running in `screen`
 #   * Starting from the **current** process ID
@@ -129,13 +129,24 @@ file="${HOME}/${USER}-agent";
 #   * An e-mail patter could be <not_whitespace><backslash><plus_sign><at><not_whitespace><backslash><plus_sign>
 #   * ...
 
-git config --global filter.anonymize.clean
-    'sed
-        -e "s/<PHONE_PATTERN>/MY_PHONE_NUMBER/g"
-        -e "s/<EMAIL_1_PATTERN>/MY_EMAIL_ADDRESS/g"
-        -e "s/<EMAIL_2_PATTERN>/MY_EMAIL_ADDRESS_2/g"
-        -e "s/<DOMAIN_PATTERN>/MY_SHORT_HANDLE-MY_SECONDARY_HANDLE.net/g"
-        -e "s/<FULL_HANLDE_PATTERN>/MY_SHORT_HANDLE_MY_SECONDARY_HANDLE/g"
-        -e "s/<SHORT_HANDLE_PATTERN>/MY_SHORT_HANDLE/g"
-        -e "s/<OPENAI_KEY_PATTERN>/MY_OPENAI_KEY/"
-        -e "s/\s\+$//"'
+# Convert the git filters into base64 to prevent confusion upon merge. By running the `cat` command, one gets the
+# original command to run, by replacing the values.
+# As this will actually be stored verbatim into the repository, the actual identifying information needed to be removed
+base64 -d - <<END
+UEhPTkVfTlVNQkVSPSIiCkVNQUlMPSIiCkhBTkRMRV8xPSIiCkhBTkRMRV8yPSIiCkZVTExfSEFO
+RExFPSIiCkRPTUFJTj0iIgoKRU1BSUxfUEFUVEVSTj0iW2EtekEtWjAtOV8rLi1dXCtAXHdcK1wu
+XChjb1x8bmV0XClcKFx3XHxcLlwpKiIKUEhPTkVfUEFUVEVSTj0iK1swLTkuICgpXVwrWzAtOV0i
+CgpnaXQgY29uZmlnIC0tZ2xvYmFsIGZpbHRlci5hbm9ueW1pemUuc211ZGdlIFwKICAgICdzZWQg
+XAogICAgICAgIC1lICJzL1BIT05FX05VTUJFUi8nIiR7UEhPTkVfTlVNQkVSfSInL2ciIFwKICAg
+ICAgICAtZSAicy9FTUFJTC8nIiR7RU1BSUx9IicvZyIgXAogICAgICAgIC1lICJzL0RPTUFJTi8n
+IiR7RE9NQUlOfSInL2ciIFwKICAgICAgICAtZSAicy9GVUxMX0hBTkRMRS8nIiR7RlVMTF9IQU5E
+TEV9IicvZyIgXAogICAgICAgIC1lICJzL0hBTkRMRV8xLyciJHtIQU5ETEVfMX0iJy9nIiBcCiAg
+ICAgICAgLWUgInMvSEFORExFXzIvJyIke0hBTkRMRV8yfSInL2ciIFwKICAgICAgICAtZSAicy9c
+c1wrJC8vIiBcCiAgICAgJwoKZ2l0IGNvbmZpZyAtLWdsb2JhbCBmaWx0ZXIuYW5vbnltaXplLmNs
+ZWFuIFwKICAgICdzZWQgXAogICAgICAgIC1lICJzLyciJHtFTUFJTF9QQVRURVJOfSInL0VNQUlM
+L2lnIiBcCiAgICAgICAgLWUgInMvJyIke1BIT05FX1BBVFRFUk59IicvUEhPTkVfTlVNQkVSL2ci
+IFwKICAgICAgICAtZSAicy8nIiR7RE9NQUlOfSInL0RPTUFJTi9pZyIgXAogICAgICAgIC1lICJz
+LyciJHtGVUxMX0hBTkRMRX0iJy9GVUxMX0hBTkRMRS9pZyIgXAogICAgICAgIC1lICJzLyciJHtI
+QU5ETEVfMX0iJy9IQU5ETEVfMS9pZyIgXAogICAgICAgIC1lICJzLyciJHtIQU5ETEVfMn0iJy9I
+QU5ETEVfMi9pZyIgXAogICAgJwo=
+END
