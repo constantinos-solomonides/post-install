@@ -29,7 +29,14 @@ set showmode
 " set magic
 
 " Required to be able to use keypad keys and map missed escape sequences
-set esckeys
+" Doesn't work with nvim
+try
+    set esckeys
+catch
+    if &verbose >= 4
+        echoerr '`esckeys` not available'
+    end
+endtry
 
 " get easier to use and more user friendly vim defaults
 " CAUTION: This option breaks some vi compatibility.
