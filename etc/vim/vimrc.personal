@@ -151,7 +151,13 @@ set tabstop         =4
 set showtabline     =0
 set tw              =120
 set undodir         =${HOME}/.vim/undo/
-set termwinkey      =<C-x>
+try
+    set termwinkey      =<C-x>
+catch
+    if &verbose >= 4
+        echoerr '`termwinkey` not available'
+    end
+endtry
 set undofile
 set ruler
 set runtimepath     +=/usr/share/vim/common/
