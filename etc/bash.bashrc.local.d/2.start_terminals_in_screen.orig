@@ -1,0 +1,132 @@
+#!/bin/bash
+# Start terminals in screen mode.
+<<<<<<< HEAD
+session_name_file="${HOME}/default_session_name"
+SENTINEL_ONE="/tmp/no_screen"
+SENTINEL_TWO="${HOME}/no_screen"
+SESSION_DEFAULT_NAME="GENERIC"
+
+function get_screen_session_name(){
+    # If the variable $SCREEN_SESSION_NAME is not empty, that's the name
+    [ ! -z "${SCREEN_SESSION_NAME}" ] && { echo "${SCREEN_SESSION_NAME}" && return; }
+
+    # If the file ${session_name_file} is not empty, that's the name
+    _name=$([ -e "${session_name_file}" ] && echo $(<${session_name_file});)
+    [ ! -z "${_name}" ] && { echo "${_name}" && return; }
+
+    echo "${SESSION_DEFAULT_NAME}";
+}
+
+function sentinels_exist(){
+    [ -e "${SENTINEL_ONE}" ] && {
+        rm -f "${SENTINEL_ONE}"; true;
+    } || [ -e "${SENTINEL_TWO}" ] && {
+        rm -f "${SENTINEL_TWO}"; true;
+    }
+}
+
+function get_next_screen_session_name(){
+    _base=$(get_screen_session_name)
+    _count=$( screen -ls | grep -c ${_base})
+    printf "%02d-%s" $((_count + 1)) ${_base}
+
+}
+
+function get_first_detached_screen(){
+    awk -v ssn=${1} -f - <(screen -ls) <<"END" | sort -n | head -n 1
+        /[0-9]+\.[0-9A-Za-z_-]+/{
+            if(index($0, ssn) && index($0, "detached")) {
+                a=$1;
+                sub("[0-9]*\\.", "", a);
+                print(a)
+            }
+||||||| df13b26
+    [ "true" = "${SCREEN_SESSION_ACTIVE}" ] || {
+       SCREEN_SESSION_ACTIVE="true"; readonly SCREEN_SESSION_ACTIVE; export SCREEN_SESSION_ACTIVE;
+        readonly SCREEN_SESSION_ACTIVE; \
+        export SCREEN_SESSION_ACTIVE;
+        { [ -e /tmp/no_screen ] && { rm -f /tmp/no_screen; true;};} || {
+          [ -e ${HOME}/no_screen ] && { rm -f ${HOME}/no_screen; true;};} || {
+            screen -S GENERIC &&
+            { { [ -e /tmp/keep_after_screen ] && { rm /tmp/keep_after_screen; true;};} ||
+        { [ -e /tmp/no_screen ] && { rm -f /tmp/no_screen; true;};} || {
+          [ -e ${HOME}/no_screen ] && { rm -f ${HOME}/no_screen; true;};} ||
+              { sleep 1s; exit; }
+            }
+=======
+session_name_file=${HOME}/default_session_name
+SENTINEL_ONE=/tmp/no_screen
+SENTINEL_TWO=${HOME}/no_screen
+
+function get_screen_session_name(){
+    if [ -e "${session_name_file}" ]; then
+        _name=$( head -n 1 ${session_name_file})
+        if [ ! -z "${_name}" ]; then
+            echo ${_name}
+            return
+        fi
+    fi
+    echo GENERIC
+}
+
+function sentinels_exist(){
+    [ -e "${SENTINEL_ONE}" ] && {
+        rm -f "${SENTINEL_ONE}"; true;
+    } || [ -e "${SENTINEL_TWO}" ] && {
+        rm -f "${SENTINEL_TWO}"; true;
+    }
+}
+
+function get_next_screen_session_name(){
+    _base=$(get_screen_session_name)
+    _count=$( screen -ls | grep -c ${_base})
+    printf "%02d-%s" $((_count + 1)) ${_base}
+
+}
+
+SCREEN_SESSION_NAME=$( get_screen_session_name )
+
+[ "true" == "${SCREEN_SESSION_ACTIVE}" ] || {
+    # Set `SCREEN_SESSION_ACTIVE` to to and export it to ensure there's no duplicate sub-screen sessiosn starting
+    SCREEN_SESSION_ACTIVE="true"; readonly SCREEN_SESSION_ACTIVE; export SCREEN_SESSION_ACTIVE;
+    sentinels_exist || { # Start a screen session
+        { # Try re-connecting to the default screen session, and if not possible, create a new with the default name
+            screen -r ${SCREEN_SESSION_NAME} 2>/dev/null || screen -R $(get_next_screen_session_name);
+        } && { # This takes place after the screen was run successfuly (after the last process exits
+            sentinels_exist || { sleep 1s; exit; }
+>>>>>>> v0.1.1/vim/colorschemes
+        }
+<<<<<<< HEAD
+END
+}
+
+
+SCREEN_SESSION_NAME=$( get_screen_session_name )
+
+[ "true" == "${SCREEN_SESSION_ACTIVE}" ] || {
+    # Set `SCREEN_SESSION_ACTIVE` to to and export it to ensure there's no duplicate sub-screen sessiosn starting
+    SCREEN_SESSION_ACTIVE="true"; readonly SCREEN_SESSION_ACTIVE; export SCREEN_SESSION_ACTIVE;
+    sentinels_exist || {
+        {
+        # If no screen sessions are running, start a new one (-r will fail here)
+            screen -ls | grep -q -e 'No Sockets found in' && screen -S ${SCREEN_SESSION_NAME};
+        } || {
+        # Try re-connecting to the first properly named, detached session
+            _first_detached=$(get_first_detached_screen ${SCREEN_SESSION_NAME});
+            [ ! -z "${_first_detached}" ] && screen -r ${_first_detached};
+        } || {
+        # Create a new session
+            screen -S $(get_next_screen_session_name);
+        }
+    } && { # This takes place after the screen was run successfuly (after the last process exits
+        sentinels_exist || { sleep 1s; exit; }
+    }
+}
+
+||||||| df13b26
+    } # SCREEN_SESSION_ACTIVE
+=======
+    }
+}
+
+>>>>>>> v0.1.1/vim/colorschemes
