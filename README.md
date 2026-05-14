@@ -3,6 +3,15 @@ This is the set of files and configurations used to bring a system to a working 
 be a Xubuntu / Ubuntu server version >= `20.04.0`. The script can easily be adapted to other use cases, as most files
 are simply `include`'d or `source`'d in. This can be expanded as needed
 
+
+# TODO
+
+* [] Include all configuration files that are modified upon running a new system
+* [] Extract common, custom-set configuration
+* [] Extract added configuration
+* [] Create script(s) to copy the files in (an) appropriate location(s) in the filesystem
+* [] Create / expand scripts to include in / overwrite the default configuration file
+
 # Lists of files / directories
 ## `bin/` - Scripts for meta-use
 Files under this directory are not meant to be copied in locations on the system. Their primary job is to move those

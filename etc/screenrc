@@ -134,8 +134,7 @@ hardstatus       firstline
 #layout           new              default
 multiuser        on
 startup_message  off
-defscrollback    50000
-term             screen-256color
+defscrollback    99999
 
 caption splitonly '%{=b rY}%3n %t'
 #hardstatus string '%0=%{= 2}[ %{2i}%H %{B}%1` - %S%11< %{g}][%{= ky}%+034=%=%{= kw}%?%-Lw%?%=%>%43=]%{r}[%=%n*%f%t%?(%u)%?%=]%{w}[%57=%=%>%?  %+Lw%?%?%=%-033=%{g}][%{B} %m-%d %{W} %c %{y} %l%{g} ]%-0='
