@@ -1,0 +1,58 @@
+#!/usr/bin/false
+# Define all variables that have to do with bash configuration, and defining some useful items, like colors
+export THIS_PC="$(hostname | sed -e 's/MY_SHORT_HANDLE-//')"
+
+[ -z "$TMOUT" ] && {
+    (! check_in_screen) && {
+        TMOUT=900;
+        export TMOUT;
+    }
+} #/set TMOUT if not set
+
+export HISTTIMEFORMAT="%Y%m%d_%H%M%S "
+export HISTCONTROL="ignoreboth:erasedups";
+export HISTSIZE="4000";
+
+
+echo "${PATH}" | grep -q -e "${HOME}/bin:" ||
+    PATH="${HOME}/bin:${PATH}"
+
+# Set the custom editor to vim.
+[ -x "$(which vim)" ] && {\
+    export VISUAL=$(which vim) ;
+    export EDITOR=$(which vim) ;
+}
+
+e_clear=0;  e_bold=1; e_dim=2;    e_reverse=3; e_underline=4;
+f_black=30; f_red=31; f_green=32; f_yellow=33; f_blue=34; f_magenta=35; f_teal=36;
+f_white=37;
+b_black=40; b_red=41; b_green=42; b_yellow=43; b_blue=44; b_magenta=45; b_teal=46;
+b_white=47;
+
+c_type="own"
+case ${c_type} in
+work)
+    c_hostname="${e_bold};${f_green}"
+    c_lvl="${e_bold};${f_magenta}"
+    c_date="${e_bold};${f_blue}"
+    c_time="${e_bold};${f_white}"
+    ;;
+own)
+    c_hostname="${e_bold};${f_yellow}"
+    c_lvl="${e_bold};${f_magenta}"
+    c_date="${e_bold};${f_blue}"
+    c_time="${e_bold};${f_white}"
+    ;;
+own-vm)
+    c_hostname="${e_bold};${f_yellow}"
+    c_lvl="${e_bold};${f_magenta}"
+    c_date="${e_bold};${f_blue}"
+    c_time="${e_bold};${f_white}"
+    ;;
+work-vm)
+    c_hostname="${e_clear};${e_bold};${b_green};${f_black}"
+    c_lvl="${e_clear};${e_bold};${f_magenta}"
+    c_date="${e_clear};${e_bold};${f_blue}"
+    c_time="${e_clear};${e_bold};${b_white};${f_black}"
+    ;;
+esac

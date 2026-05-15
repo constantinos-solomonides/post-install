@@ -1,0 +1,80 @@
+#!/usr/bin/false
+function check_in_screen(){
+    pid="$$";
+    if [ -z "${pid}" ]; then
+        return 1
+    fi
+    for i in {1..15}; do
+        [ "${pid}" -eq 1 ] && return 1
+        ps -h -p "${pid}" -o cmd | grep -q -e SCREEN && return 0
+        pid=$(ps -p "${pid}" -h -o ppid | sed -e 's/\s*//')
+    done
+    return 1
+}
+
+# Sets the color of the
+function tmout_set_color(){
+    # `clear` is universal
+    e_clear="0"
+    # If there is no other hightlight selected, make bold
+    e_highlight="${1:-1}"
+    # Colorize as chosen OR yellow
+    e_color="${2:-33}"
+    [ -z "${TMOUT:-}" ] && {
+        echo -n "${e_clear}" ;
+        return 0;
+    } || {
+        echo -n -e "${e_highlight};${e_color}";
+        return 0;
+    } ;
+}
+
+# This is used to get the escape character, NOT to check if the session is running within screen
+function get_screen_sc(){
+    pid=$$;
+    if [ -z "$pid" ]; then
+        echo "N/A"
+    fi
+    count=0;
+    while ((count++ <= 10)); do
+        if [ -e "/tmp/$pid" ]; then
+            cat /tmp/$pid;
+            break;
+        fi
+        pid=$(ps --no-headers -o ppid -p $pid| xargs echo -n);
+        if ((pid == 1)); then
+            echo "N/A";
+            break
+        fi
+    done;
+    if (( count == 11 )); then
+        echo "N/A";
+    fi
+}
+
+function pushd(){
+    builtin pushd $@ || {
+        [ ${#*} == 1 ] || {
+            echo "Must provide only a single path" 1>&2; return 1;
+        };
+        read -p "The path $@ does not exist. Do you wish to create it? [y/N]";
+            [[ ${REPLY,,} =~ ye?s? ]] \
+        &&  mkdir -p ${@} \
+        && builtin pushd $@
+    }
+}
+
+# Aliases
+alias now='date +%Y%m%d%H%M%S'
+alias rm="/bin/rm -i"
+alias ls="/bin/ls --color"
+alias grep="/bin/grep --color=auto"
+alias init="echo 'init is deprecated' >&2 "
+alias less="/bin/less -R";
+alias cp="/bin/cp --backup=numbered"
+alias mv="/bin/mv --backup=numbered"
+
+
+if [ "0" != "${UID}" ] ; then
+    alias brc="${EDITOR} ${HOME}/Documents/development/scripts/bash/bashrc.sh";
+fi # / settings based on root / user
