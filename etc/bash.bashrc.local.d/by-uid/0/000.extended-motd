@@ -1,3 +1,6 @@
+#!/usr/bin/false
+
+# Show the user the changes that took place in the tracked files
 [ -z "$NOTIFIED" ] && {
   { [ -d /.git ] && cd / && git status ; } ||
   { [ -d /.hg ] && cd / && hg status ;   } ;
