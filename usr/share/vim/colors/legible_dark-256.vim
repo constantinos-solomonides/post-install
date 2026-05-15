@@ -1,4 +1,5 @@
 " Vim color file
+" Dark version, 256-colors
 " Maintainer: Constantinos SOLOMONIDES <MY_EMAIL_ADDRESS>
 " URL:
 " Version: 0.1
@@ -16,7 +17,7 @@ if version > 580
     syntax reset
     endif
 endif
-let g:colors_name="csolomonides"
+let g:colors_name="legible_dark-256"
 
 hi  Normal          ctermfg=7
 hi  Cursor          cterm=reverse         ctermbg=1

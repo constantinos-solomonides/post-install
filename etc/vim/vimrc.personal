@@ -40,7 +40,7 @@ function! SetSyntaxPerConnection()
     if len(b:clrscheme) != 0
       exec printf("colorscheme %s", b:clrscheme)
     else
-        colorscheme csolomonides
+        colorscheme legible_dark-256
     endif
   catch
     echo "Exception: " . v:exception
