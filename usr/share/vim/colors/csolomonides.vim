@@ -46,9 +46,9 @@ hi  SpellReview     cterm=underline       ctermfg=11            ctermbg=NONE
 hi  User1           cterm=inverse,bold    ctermfg=12
 hi  User2           cterm=inverse,bold    ctermfg=14
 hi  DiffAdd                               ctermbg=29
-hi  DiffChange                            ctermbg=13
-hi  DiffDelete                            ctermbg=64            ctermfg=15
-hi  DiffText        cterm=bold            ctermbg=9             ctermfg=8
+hi  DiffChange                            ctermbg=52
+hi  DiffDelete                            ctermbg=64
+hi  DiffText        cterm=bold            ctermbg=88
 
 hi link Character               Constant
 hi link Number                  Constant
