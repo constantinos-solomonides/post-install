@@ -40,7 +40,7 @@ function! SetSyntaxPerConnection()
     if len(b:clrscheme) != 0
       exec printf("colorscheme %s", b:clrscheme)
     else
-        colorscheme csolomonides
+        colorscheme legible_dark-256
     endif
   catch
     echo "Exception: " . v:exception
@@ -176,6 +176,7 @@ match EndWS /\s\+$/
 " --------
 noremap <F2> "+p
 inoremap <F2> <C-R>+
+inoremap <C-c> <Space>NOT_THE_RIGHT_ONE<Space>| " Short "punishment" to wean-off the CTRL-C habit
 noremap <F3> "+y
 noremap gB :bprevious<Return>
 noremap gb :bnext<Return>

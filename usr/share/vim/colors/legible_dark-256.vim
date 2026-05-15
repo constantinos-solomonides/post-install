@@ -1,4 +1,5 @@
 " Vim color file
+" Dark version, 256-colors
 " Maintainer: Constantinos SOLOMONIDES <MY_EMAIL_ADDRESS>
 " URL:
 " Version: 0.1
@@ -16,7 +17,7 @@ if version > 580
     syntax reset
     endif
 endif
-let g:colors_name="csolomonides"
+let g:colors_name="legible_dark-256"
 
 hi  Normal          ctermfg=7
 hi  Cursor          cterm=reverse         ctermbg=1
@@ -46,9 +47,9 @@ hi  SpellReview     cterm=underline       ctermfg=11            ctermbg=NONE
 hi  User1           cterm=inverse,bold    ctermfg=12
 hi  User2           cterm=inverse,bold    ctermfg=14
 hi  DiffAdd                               ctermbg=29
-hi  DiffChange                            ctermbg=13
-hi  DiffDelete                            ctermbg=64            ctermfg=15
-hi  DiffText        cterm=bold            ctermbg=9             ctermfg=8
+hi  DiffChange                            ctermbg=52
+hi  DiffDelete                            ctermbg=64
+hi  DiffText        cterm=bold            ctermbg=88
 
 hi link Character               Constant
 hi link Number                  Constant
