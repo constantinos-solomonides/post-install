@@ -1,0 +1,36 @@
+deflogin on
+vbell on
+
+#remove some stupid / dangerous key bindings
+bind ^k
+bind ^\
+bind \\ quit
+bind K kill
+
+bind = exec bash -c "shred -u ${HOME}/screen-exchange;"
+bind P exec bash -c "{ screen -X writebuf ${HOME}/screen-exchange;  /usr/bin/xsel --display \${DISPLAY:-':0.0'} -b -i < ${HOME}/screen-exchange; xsel --display \${DISPLAY:-':0.0'} -o -b > /dev/null; } "
+bind O exec bash -c "{ screen -X writebuf ${HOME}/screen-exchange;  sed -i -e 's%^/%file:///%' ${HOME}/screen-exchange; $(which firefox) $(<${HOME}/screen-exchange) >&/dev/null ; }"
+bind > exec bash -c "{ screen -X writebuf ${HOME}/screen-exchange; }"
+bind < exec bash -c "{ screen -X readbuf ${HOME}/screen-exchange; }"
+bind h focus left
+bind j focus down
+bind k focus up
+bind l focus right
+bind } history
+bind ^C layout new
+bind ^N layout next
+bind ^P layout prev
+bind ^D layout remove
+backtick 1 10 10 cat /tmp/$PID
+
+hardstatus       always
+hardstatus       firstline
+multiuser        on
+startup_message  off
+jefscrollback    99999
+
+caption splitonly '%{=b rY}%3n %t'
+hardstatus string '%00=%{= 2}[ %{2i}%H %{B}%1` - %S%+25<%=%{g}][%{= ky}%+034=%=%{= kw}%?%-Lw%?%=%>%43=]%{r}[%=%n*%f%t%?(%u)%?%=]%{w}[%57=%=%>%?  %+Lw%?%?%=%-033=%{g}][%{B} %m-%d %{W} %c %{y} %l%{g} ]%-00='
+
+
+backtick 0 0 0 bash -c '_screen_escape="^Ss"; [ -e "${HOME}/.screen_escape" ] && _screen_escape=$(<${HOME}/.screen_escape); echo "${_screen_escape}" > /tmp/${PPID:-OOPS}; screen -S "${PPID}" -X escape $(</tmp/${PPID:-OOPS})'

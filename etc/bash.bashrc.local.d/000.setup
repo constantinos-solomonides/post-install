@@ -1,0 +1,5 @@
+# Disable CTRL-S freeze of the terminal
+stty ixany ixoff -ixon
+
+# set the locale if present as /etc/locale.conf
+[ -e "/etc/locale.conf" ] && . /etc/locale.conf

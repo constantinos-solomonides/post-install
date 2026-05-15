@@ -1,0 +1,50 @@
+#!/usr/bin/false
+# Set the variables that have to do with the prompt
+
+# NOTE: PROMPT_COMMAND is **hijacked** here to perform other functions, like setting the terminal title AND to save each
+# command issued into a **sequential** log, so that they're stored in order regardless of screen session termination
+# order
+_PROMPT_COMMAND=(
+'_generic_title="${USER}@${HOSTNAME/.*/}";'
+'_terminal_title=${TERM_TITLE:-${_generic_title@U}};'
+'echo -n -e "\e]2;${_terminal_title}\a";'
+# Store bash history to .bash_history.log if file does not exist
+'[ -e ~/.bash_history.log ]'
+' || history '
+   " | tr -d -c '[:print:][:space:]' "
+   ' > ~/.bash_history.log;'
+# Save the latest command
+  'tail -n 100 ~/.bash_history.log'
+  ' | grep -q -e "$(history 1 '
+                 " | tr -d -c '[:print:][:space:]' "
+                 " | head -n 1"
+  ' | awk ' "'" '{print $1 "[\t ]*" $2}' "'" ')"'
+  '|| { history 1'
+    " | tr -d -c '[:print:][:space:]'"
+      '>> ~/.bash_history.log; }'
+)
+
+PROMPT_COMMAND=${_PROMPT_COMMAND[@]}
+
+if test "$UID" -eq 0 ; then
+  PS1_prompt_color="\[\e[0;31m\]"
+else
+  PS1_prompt_color="\[\e[0m\]"
+fi # /if root
+
+PS1=(
+    "\[\e[${c_hostname}m\]${HOSTNAME} "                         # Hostname
+    "\[\e[${c_lvl}m\]lvl:${SHLVL} "                             # ShellLevel
+    "\[\e[${c_date}m\]\D{%Y%m%d}\[\e[${e_clear}m\] "            # Date
+    "\[\e[${c_time}m\]\D{%H%M%S}\[\e[${e_clear};m\] "           # Time
+    "$PS1_prompt_color"                                         # Colorize root
+    "\[\e[${e_bold}m\]\u@\h\[\e[${e_clear};m\]"                 # User@Host
+    "\n\w"                                                      # Directory
+    '\[\e[$(tmout_set_color)m\]'                                # Colorize based on tmout
+    "\n("                                                       # Prompt
+    '$(get_screen_sc)'                                          # Note escape in PS
+    ") =====> \$ "                                              # Prompt
+    "\[\e[${e_clear};m\]"
+) # /PS1
+
+store_IFS="$IFS"; IFS='' PS1=${PS1[*]}; IFS="$store_IFS"
