@@ -188,26 +188,27 @@ try
   au!
 catch
 endtry
-    au BufNewFile,BufRead */.ssh/config.d/*     setf sshconfig
-    au BufNewFile,BufRead *.tex                 set tw=0
-    au BufNewFile,BufRead *.md                  set tw=110
-    au BufNewFile,BufRead /etc/hosts.d/*        setf conf
-    au BufNewFile,BufRead /etc/sudoers.d/*      setf sudoers
-    au BufNewFile,BufRead,BufEnter */Makefile*  set noexpandtab
-    au BufNewFile,BufRead /etc/screenrc         set tw=0
-    au BufNewFile,BufRead /tmp/bash-fc*         set tw=0
-    au BufNewFile,BufRead /tmp/bash-fc*         set syntax=sh
-    au BufLeave           */Makefile*           set expandtab
-    au BufEnter           .git/COMMIT_EDITMSG   set spell spelllang=en_us
-    au BufEnter           *                     call SetSyntaxPerConnection()
-    au BufLeave           *                     call SaveColors()
-    au BufEnter           *                     highlight OverLength ctermbg=white
+    au BufNewFile,BufRead */.ssh/config.d/*         setf sshconfig
+    au BufNewFile,BufRead *.tex                     set tw=0
+    au BufNewFile,BufRead *.md                      set tw=110
+    au BufNewFile,BufRead /etc/hosts.d/*            setf conf
+    au BufNewFile,BufRead /etc/sudoers.d/*          setf sudoers
+    au BufNewFile,BufRead,BufEnter */Makefile*      set noexpandtab
+    au BufNewFile,BufRead /etc/screenrc             set tw=0
+    au BufNewFile,BufRead /tmp/bash-fc*             set tw=0
+    au BufNewFile,BufRead /tmp/bash-fc*             set syntax=sh
+    au BufNewFile,BufRead */bash.bashrc.local.d/*   set syntax=sh
+    au BufLeave           */Makefile*               set expandtab
+    au BufEnter           .git/COMMIT_EDITMSG       set spell spelllang=en_us
+    au BufEnter           *                         call SetSyntaxPerConnection()
+    au BufLeave           *                         call SaveColors()
+    au BufEnter           *                         highlight OverLength ctermbg=white
     \           guibg=#592929 ctermfg=black
-    au BufEnter           *                     exec printf("match OverLength " .
+    au BufEnter           *                         exec printf("match OverLength " .
     \            "/\\%%%dv.*/", (&tw == 0?999999:&tw))
     " Update g:lasttab, so that the tablist display is valid
-    au TabLeave           *                     let g:lasttab = tabpagenr()
-    au Syntax * call SetSyntaxPerConnection()
-    au Syntax man set tw=0
-    au FileType           python                compiler pylint
+    au TabLeave           *                         let g:lasttab = tabpagenr()
+    au Syntax             *                         call SetSyntaxPerConnection()
+    au Syntax             man                       set tw=0
+    au FileType           python                    compiler pylint
 augroup END
