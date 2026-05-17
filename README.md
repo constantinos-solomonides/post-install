@@ -4,15 +4,70 @@ be a Xubuntu / Ubuntu server version >= `20.04.0`. The script can easily be adap
 are simply `include`'d or `source`'d in. This can be expanded as needed
 
 
-# TODO
+# TODOs
 
-* [] Include all configuration files that are modified upon running a new system
-* [] Extract common, custom-set configuration
-* [] Extract added configuration
+* [x] Include all configuration files that are modified upon running a new system
+* [x] Extract common, custom-set configuration
+* [x] Extract added configuration
+* [] Update README (this document) with status up to current point (v0.1.3)
 * [] Create script(s) to copy the files in (an) appropriate location(s) in the filesystem
 * [] Create / expand scripts to include in / overwrite the default configuration file
 
+
 # Lists of files / directories
+```
+.
++-- bin
+|   +-- popup_thunar.sh
+|   +-- retrieve_mikrotik_backups.sh
+|   +-- set_workspace_background.sh
+|   +-- toggle_mousekeys.sh
++-- etc
+|   +-- bash.bashrc.local
+|   +-- bash.bashrc.local.d
+|   |   +-- 000.setup
+|   |   +-- 010.functions
+|   |   +-- 012.variables_configuration
+|   |   +-- 013.variables_PS
+|   |   +-- 050.start_terminals_in_screen
+|   |   +-- 051.set_cli_name_in_screen
+|   |   +-- by-uid
+|   |       +-- 0
+|   |           +-- 000.extended-motd
+|   +-- inputrc
+|   +-- screenrc.custom
+|   +-- vim
+|       +-- gvimrc
+|       +-- vimrc
+|       +-- vimrc.external_defaults
+|       +-- vimrc.personal
++-- examples
+|   +-- test_vim_colours.vim
+|   +-- text_example.viewcolours
+|   +-- triangle_area_BASE.py
+|   +-- triangle_area_LOCAL.py
+|   +-- triangle_area.py
+|   +-- triangle_area_REMOTE.py
+|   +-- vimdiff1.base
+|   +-- vimdiff1.merged
+|   +-- vimdiff1.orig
+|   +-- vimdiff1.remote
++-- gitconfig
++-- LICENSE
++-- one_liners.sh
++-- README.md
++-- usr
+    +-- share
+        +-- nvim
+        |   +-- sysinit.vim
+        +-- vim
+            +-- colors
+                +-- legible_dark-256.vim
+                +-- vimcolourstest.vim
+
+```
+
+
 ## `bin/` - Scripts for meta-use
 Files under this directory are not meant to be copied in locations on the system. Their primary job is to move those
 files in the appropriate locations and include them as appropriate.
