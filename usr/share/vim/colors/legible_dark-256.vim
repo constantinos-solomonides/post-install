@@ -19,39 +19,39 @@ if version > 580
 endif
 let g:colors_name="legible_dark-256"
 
-hi  Normal          ctermfg=7
-hi  Cursor          cterm=reverse         ctermbg=1
-hi  Comment         ctermfg=116
-hi  Constant        ctermfg=12
-hi  Keyword         cterm=bold            ctermfg=11
-hi  PreProc         ctermfg=7
-hi  String          ctermfg=13
-hi  htmlString      cterm=underline       ctermfg=4
-hi  Float           ctermfg=9
-hi  Statement       cterm=bold            ctermfg=10
-hi  Type            cterm=bold            ctermfg=130
-hi  Identifier      cterm=bold            ctermfg=202
-hi  Title           cterm=bold            ctermfg=120
-hi  htmlH2          cterm=bold            ctermfg=130
-hi  htmlH3          cterm=bold            ctermfg=140
-hi  htmlH4          cterm=bold            ctermfg=150
-hi  NonText         ctermfg=1
-hi  htmlItalic      cterm=underline
-hi  htmlBold        cterm=bold            ctermfg=NONE          ctermbg=NONE
-hi  htmlBoldItalic  cterm=bold,underline
-hi  htmlTagName     cterm=bold            ctermfg=130
-hi  PreProc         cterm=bold            ctermfg=11
-hi  Tags            ctermfg=14
-hi  SpellBad        cterm=underline       ctermfg=1             ctermbg=NONE
-hi  SpellReview     cterm=underline       ctermfg=11            ctermbg=NONE
-hi  User1           cterm=inverse,bold    ctermfg=12
-hi  User2           cterm=inverse,bold    ctermfg=14
-hi  DiffAdd                               ctermbg=29
-hi  DiffChange                            ctermbg=52
-hi  DiffDelete                            ctermbg=64
-hi  DiffText        cterm=bold            ctermbg=88
-hi  Error           cterm=bold            ctermbg=9             ctermfg=21
-hi  StatusLineTermNC  cterm=reverse       ctermfg=white ctermbg=black
+hi  Normal                                      ctermfg=7
+hi  Cursor              cterm=reverse                           ctermbg=1
+hi  Comment                                     ctermfg=116
+hi  Constant                                    ctermfg=12
+hi  Keyword             cterm=bold              ctermfg=11
+hi  PreProc                                     ctermfg=7
+hi  String                                      ctermfg=13
+hi  htmlString          cterm=underline         ctermfg=4
+hi  Float                                       ctermfg=9
+hi  Statement           cterm=bold              ctermfg=10
+hi  Type                cterm=bold              ctermfg=130
+hi  Identifier          cterm=bold              ctermfg=202
+hi  Title               cterm=bold              ctermfg=120
+hi  htmlH2              cterm=bold              ctermfg=130
+hi  htmlH3              cterm=bold              ctermfg=140
+hi  htmlH4              cterm=bold              ctermfg=150
+hi  NonText                                     ctermfg=1
+hi  htmlItalic          cterm=underline
+hi  htmlBold            cterm=bold              ctermfg=NONE    ctermbg=NONE
+hi  htmlBoldItalic      cterm=bold,underline
+hi  htmlTagName         cterm=bold              ctermfg=130
+hi  PreProc             cterm=bold              ctermfg=11
+hi  Tags                                        ctermfg=14
+hi  SpellBad            cterm=underline         ctermfg=1       ctermbg=NONE
+hi  SpellReview         cterm=underline         ctermfg=11      ctermbg=NONE
+hi  User1               cterm=inverse,bold      ctermfg=12
+hi  User2               cterm=inverse,bold      ctermfg=14
+hi  DiffAdd                                                     ctermbg=29
+hi  DiffChange                                                  ctermbg=52
+hi  DiffDelete                                                  ctermbg=64
+hi  DiffText            cterm=bold                              ctermbg=88
+hi  Error               cterm=bold              ctermfg=21      ctermbg=9
+hi  StatusLineTermNC    cterm=reverse           ctermfg=7       ctermbg=16
 
 hi link Character               Constant
 hi link Number                  Constant
