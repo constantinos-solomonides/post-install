@@ -61,10 +61,10 @@ are simply `include`'d or `source`'d in. This can be expanded as needed
         +-- nvim
         |   +-- sysinit.vim
         +-- vim
-            +-- colors
-                +-- legible_dark-256.vim
-                +-- vimcolourstest.vim
-
+            +-- common
+                +-- colors
+                    +-- legible_dark-256.vim
+                    +-- vimcolourstest.vim
 ```
 
 
