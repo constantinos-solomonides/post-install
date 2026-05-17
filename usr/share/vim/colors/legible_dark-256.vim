@@ -50,6 +50,8 @@ hi  DiffAdd                               ctermbg=29
 hi  DiffChange                            ctermbg=52
 hi  DiffDelete                            ctermbg=64
 hi  DiffText        cterm=bold            ctermbg=88
+hi  Error           cterm=bold            ctermbg=9             ctermfg=21
+hi  StatusLineTermNC  cterm=reverse       ctermfg=white ctermbg=black
 
 hi link Character               Constant
 hi link Number                  Constant
