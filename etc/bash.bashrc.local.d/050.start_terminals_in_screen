@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/false
 # Start terminals in screen mode.
 session_name_file="${HOME}/default_session_name"
 SENTINEL_ONE="/tmp/no_screen"
@@ -17,11 +17,15 @@ function get_screen_session_name(){
 }
 
 function sentinels_exist(){
-    [ -e "${SENTINEL_ONE}" ] && {
-        rm -f "${SENTINEL_ONE}"; true;
-    } || [ -e "${SENTINEL_TWO}" ] && {
-        rm -f "${SENTINEL_TWO}"; true;
-    }
+    {
+        [ -e "${SENTINEL_ONE}" ] && {
+            rm -f "${SENTINEL_ONE}"; true;
+        }
+    } || {
+        [ -e "${SENTINEL_TWO}" ] && {
+            rm -f "${SENTINEL_TWO}"; true;
+        }
+    } || false
 }
 
 function get_next_screen_session_name(){
@@ -51,18 +55,20 @@ SCREEN_SESSION_NAME=$( get_screen_session_name )
     SCREEN_SESSION_ACTIVE="true"; readonly SCREEN_SESSION_ACTIVE; export SCREEN_SESSION_ACTIVE;
     sentinels_exist || {
         {
-        # If no screen sessions are running, start a new one (-r will fail here)
-            screen -ls | grep -q -e 'No Sockets found in' && screen -S ${SCREEN_SESSION_NAME};
-        } || {
-        # Try re-connecting to the first properly named, detached session
-            _first_detached=$(get_first_detached_screen ${SCREEN_SESSION_NAME});
-            [ ! -z "${_first_detached}" ] && screen -r ${_first_detached};
-        } || {
-        # Create a new session
-            screen -S $(get_next_screen_session_name);
+            {
+            # If no screen sessions are running, start a new one (-r will fail here)
+                screen -ls | grep -q -e 'No Sockets found in' && screen -S ${SCREEN_SESSION_NAME};
+            } || {
+            # Try re-connecting to the first properly named, detached session
+                _first_detached=$(get_first_detached_screen ${SCREEN_SESSION_NAME});
+                [ ! -z "${_first_detached}" ] && screen -r ${_first_detached};
+            } || {
+            # Create a new session
+                screen -S $(get_next_screen_session_name);
+            }
+        } && { # This takes place after the screen was run successfuly (after the last process exits
+            sentinels_exist || { sleep 1s; exit; }
         }
-    } && { # This takes place after the screen was run successfuly (after the last process exits
-        sentinels_exist || { sleep 1s; exit; }
     }
 }
 
