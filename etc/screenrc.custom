@@ -21,7 +21,7 @@ bind ^C layout new
 bind ^N layout next
 bind ^P layout prev
 bind ^D layout remove
-backtick 1 10 10 cat /tmp/$PID
+backtick 1 10 10 cat ${TMPDIR:-/tmp}/${PID}
 
 hardstatus       always
 hardstatus       firstline
@@ -33,4 +33,4 @@ caption splitonly '%{=b rY}%3n %t'
 hardstatus string '%00=%{= 2}[ %{2i}%H %{B}%1` - %S%+25<%=%{g}][%{= ky}%+034=%=%{= kw}%?%-Lw%?%=%>%43=]%{r}[%=%n*%f%t%?(%u)%?%=]%{w}[%57=%=%>%?  %+Lw%?%?%=%-033=%{g}][%{B} %m-%d %{W} %c %{y} %l%{g} ]%-00='
 
 
-backtick 0 0 0 bash -c '_screen_escape="^Ss"; [ -e "${HOME}/.screen_escape" ] && _screen_escape=$(<${HOME}/.screen_escape); echo "${_screen_escape}" > /tmp/${PPID:-OOPS}; screen -S "${PPID}" -X escape $(</tmp/${PPID:-OOPS})'
+backtick 0 0 0 bash -c '_screen_escape="^Ss"; [ -e "${HOME}/.screen_escape" ] && _screen_escape=$(<${HOME}/.screen_escape); echo "${_screen_escape}" > ${TMPDIR:-/tmp}/${PPID:-OOPS}; screen -S "${PPID}" -X escape $(<${TMPDIR:-/tmp}/${PPID:-OOPS})'
