@@ -21,7 +21,7 @@ bind ^C layout new
 bind ^N layout next
 bind ^P layout prev
 bind ^D layout remove
-backtick 1 10 10 cat ${TMPDIR:-/tmp}/${PID}
+backtick 1 10 10 bash -c '{ [ -e "${TMPDIR:-/tmp}/${PID}" ] && cat "${TMPDIR:-/tmp}/${PID}"; } || { echo "N/A" }'
 
 hardstatus       always
 hardstatus       firstline
