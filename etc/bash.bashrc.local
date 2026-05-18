@@ -13,21 +13,38 @@
 # |-------------------------------------------------------------------------| #
 
 #ECHO=/usr/bin/echo
-ECHO=""
 #set -x
+ECHO=""
+
+# Some bash magic here: Return will work if sourced, so ${BASH_SOURCE[0]} is
+# where the path is at. Otherwise, $0 is the source of truth. This makes the
+# scripts more generic in nature, and allows sourcing from any location,
+# assuming *only* a relationship between this file and the files being sourced
+# from it, in terms of placement
+_SOURCE_BASE="$(
+    {
+        (return 2>/dev/null; ) && dirname $(realpath ${BASH_SOURCE[0]});
+    } || {
+        echo $(dirname $(realpath $0));
+    }
+)"
+
+SOURCE_BASE="${SOURCE_BASE:-${_SOURCE_BASE}}"
+
+
 if [ ! -z "${PS1}" ]; then
     # Activate Completion.
     [ -r /usr/share/bash-completion/bash_completion ] && \
         ${ECHO} . /usr/share/bash-completion/bash_completion;
     # General purpose codes.
-    for i in /etc/bash.bashrc.local.d/*; do
+    for i in "${SOURCE_BASE}/bash.bashrc.local.d/"*; do
         [ -e "${i}" ] && \
         [ -f "${i}" ] && \
         ${ECHO} . ${i}
     done #/for all files in bashrc.local.d
 
     # Source the appropriate files by UID
-    for i in /etc/bash.bashrc.local.d/by-uid/${UID}/*; do
+    for i in ${SOURCE_BASE}/bash.bashrc.local.d/by-uid/${UID}/*; do
         [ -e "${i}" ] && \
         [ -f "${i}" ] && \
         ${ECHO} . ${i}
@@ -35,3 +52,5 @@ if [ ! -z "${PS1}" ]; then
 fi # /if empty PS1
 # ELSE do nothing.
 #set -x
+
+unset SOURCE_BASE _SOURCE_BASE
