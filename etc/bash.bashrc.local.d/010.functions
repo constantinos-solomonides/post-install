@@ -5,6 +5,7 @@ function check_in_screen(){
         return 1
     fi
     for i in {1..15}; do
+        [ -z "${pid}" ] && return 1
         [ "${pid}" -eq 1 ] && return 1
         ps -h -p "${pid}" -o cmd | grep -q -e SCREEN && return 0
         pid=$(ps -p "${pid}" -h -o ppid | sed -e 's/\s*//')
@@ -31,7 +32,7 @@ function tmout_set_color(){
 
 # This is used to get the escape character, NOT to check if the session is running within screen
 function get_screen_sc(){
-    pid=$$;
+    pid="$$";
     if [ -z "$pid" ]; then
         echo "N/A"
     fi
@@ -42,7 +43,7 @@ function get_screen_sc(){
             break;
         fi
         pid=$(ps --no-headers -o ppid -p $pid| xargs echo -n);
-        if ((pid == 1)); then
+        if [ -z "${pid}" ] || ((pid == 1)); then
             echo "N/A";
             break
         fi
