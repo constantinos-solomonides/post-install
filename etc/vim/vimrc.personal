@@ -165,6 +165,11 @@ if &syntax != "make"
   set expandtab
 endif
 
+" Set TMPDIR if not found in environment
+if (has_key(environ(), 'TMPDIR') == 0)
+    let $TMPDIR ="/tmp"
+endif
+
 " Highlight groups
 " ---------------
 hi User1 term=inverse,bold cterm=inverse,bold ctermfg=blue
@@ -184,6 +189,7 @@ map tt :tabnew<CR>
 noremap tl :call<Space>GetTabListStatus()<CR>
 noremap <C-L> :call<Space>CopyAndMove()<CR>
 
+
 augroup ownAU
 try
   au!
@@ -196,8 +202,8 @@ endtry
     au BufNewFile,BufRead /etc/sudoers.d/*          setf sudoers
     au BufNewFile,BufRead,BufEnter */Makefile*      set noexpandtab
     au BufNewFile,BufRead /etc/screenrc             set tw=0
-    au BufNewFile,BufRead /tmp/bash-fc*             set tw=0
-    au BufNewFile,BufRead /tmp/bash-fc*             set syntax=sh
+    au BufNewFile,BufRead $TMPDIR/bash-fc*             set tw=0
+    au BufNewFile,BufRead $TMPDIR/bash-fc*             set syntax=sh
     au BufNewFile,BufRead */bash.bashrc.local.d/*   set syntax=sh
     au BufLeave           */Makefile*               set expandtab
     au BufEnter           .git/COMMIT_EDITMSG       set spell spelllang=en_us

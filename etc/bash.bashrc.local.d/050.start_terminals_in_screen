@@ -1,7 +1,7 @@
 #!/usr/bin/false
 # Start terminals in screen mode.
 session_name_file="${HOME}/default_session_name"
-SENTINEL_ONE="/tmp/no_screen"
+SENTINEL_ONE="${TMPDIR:-/tmp}/no_screen"
 SENTINEL_TWO="${HOME}/no_screen"
 SESSION_DEFAULT_NAME="GENERIC"
 
