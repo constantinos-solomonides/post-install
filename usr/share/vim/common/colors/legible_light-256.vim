@@ -21,6 +21,8 @@ let g:colors_name="legible_light-256"
 
 hi  Normal              ctermfg=7
     \                       guifg=#000000
+hi  Ignore              ctermfg=7
+    \                       guifg=#999999
 hi  Cursor                              ctermbg=1       cterm=reverse
     \                       guifg=NONE      guibg=NONE      gui=reverse
 hi  Comment             ctermfg=116
