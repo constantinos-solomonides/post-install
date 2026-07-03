@@ -1,0 +1,6 @@
+" Custom vim functions, variables and settings
+try
+    colorscheme legible_light-256
+catch
+    colorscheme default
+endtry
