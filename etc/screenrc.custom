@@ -27,7 +27,7 @@ hardstatus       always
 hardstatus       firstline
 multiuser        on
 startup_message  off
-jefscrollback    99999
+defscrollback    99999
 
 caption splitonly '%{=b rY}%3n %t'
 hardstatus string '%00=%{= 2}[ %{2i}%H %{B}%1` - %S%+25<%=%{g}][%{= ky}%+034=%=%{= kw}%?%-Lw%?%=%>%43=]%{r}[%=%n*%f%t%?(%u)%?%=]%{w}[%57=%=%>%?  %+Lw%?%?%=%-033=%{g}][%{B} %m-%d %{W} %c %{y} %l%{g} ]%-00='
