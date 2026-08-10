@@ -138,7 +138,7 @@ set autoindent
 set relativenumber
 set linebreak
 set number
-set history         =600
+set history         =5000
 set laststatus      =2
 set shiftwidth      =4
 set softtabstop     =4

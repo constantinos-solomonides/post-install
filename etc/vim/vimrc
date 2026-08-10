@@ -3,3 +3,6 @@ for conf_file in ['/etc/vim/vimrc.external_defaults', '/etc/vim/vimrc.personal' 
       exec printf("source %s", conf_file)
     endif
 endfor
+
+" Use this to avoid the (re)loading of the built-in defaults when this file has been loaded
+let skip_defaults_vim = 1
