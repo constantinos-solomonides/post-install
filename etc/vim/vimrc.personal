@@ -160,7 +160,7 @@ catch
 endtry
 set undofile
 set ruler
-set runtimepath     +=/usr/share/vim/common/
+exec printf("set runtimepath     +=%s", base . '/usr/share/vim/common')
 if &syntax != "make"
   set expandtab
 endif
