@@ -74,6 +74,7 @@ alias init="echo 'init is deprecated' >&2 "
 alias less="/bin/less -R";
 alias cp="/bin/cp --backup=numbered"
 alias mv="/bin/mv --backup=numbered"
+alias mc='[ -z "${MC_TMPDIR}" ] && env mc'
 
 
 if [ "0" != "${UID}" ] ; then
