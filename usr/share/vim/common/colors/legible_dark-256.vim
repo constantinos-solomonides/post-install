@@ -85,6 +85,8 @@ hi  Error               ctermfg=21      ctermbg=9       cterm=bold
     \                       guifg=#b3b300   guibg=#000000   gui=bold,reverse
 hi  StatusLineTerm      ctermfg=7       ctermbg=16      cterm=reverse
     \                       guifg=#000000   guibg=#ffffff   gui=reverse
+hi  Special             ctermfg=5       ctermbg=NONE
+    \                       guifg=#dddd00   guibg=#ffffff
 
 hi link Character               Constant
 hi link Number                  Constant
