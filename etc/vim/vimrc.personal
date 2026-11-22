@@ -160,7 +160,7 @@ catch
 endtry
 set undofile
 set ruler
-exec printf("set runtimepath     +=%s", base . '/usr/share/vim/common')
+set runtimepath     +=/usr/share/vim/common/
 if &syntax != "make"
   set expandtab
 endif
@@ -196,8 +196,8 @@ try
 catch
 endtry
     au BufNewFile,BufRead */.ssh/config.d/*         setf sshconfig
-    au BufNewFile,BufRead *.tex                     set tw=0
-    au BufNewFile,BufRead *.md                      set tw=110
+    au BufNewFile,BufRead *.tex                     set tw=120
+    au BufNewFile,BufRead *.md                      set tw=120
     au BufNewFile,BufRead /etc/hosts.d/*            setf conf
     au BufNewFile,BufRead /etc/sudoers.d/*          setf sudoers
     au BufNewFile,BufRead,BufEnter */Makefile*      set noexpandtab
@@ -212,7 +212,7 @@ endtry
     au BufEnter           *                         highlight OverLength ctermbg=white
     \           guibg=#592929 ctermfg=black
     au BufEnter           *                         exec printf("match OverLength " .
-    \            "/\\%%%dv.*/", (&tw == 0?999999:&tw))
+    \            "/\\%%%dv.\\+/", (&tw == 0?999999:&tw+1))
     " Update g:lasttab, so that the tablist display is valid
     au TabLeave           *                         let g:lasttab = tabpagenr()
     au Syntax             *                         call SetSyntaxPerConnection()
